@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brewline Coffee Co. — Sales Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #EFE6D8;
+    --panel: #F8F2E8;
+    --ink: #2C1B12;
+    --ink-soft: #6B5747;
+    --line: #DCCBB0;
+    --amber: #B9793B;
+    --sage: #5C7A5E;
+    --berry: #9C5B58;
+    --amber-soft: #EAD3B0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1C1410;
+      --panel: #251B15;
+      --ink: #F1E6D8;
+      --ink-soft: #B9A891;
+      --line: #3C2E23;
+      --amber: #D79A56;
+      --sage: #7FA282;
+      --berry: #C17E7B;
+      --amber-soft: #3A2A1A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1410; --panel: #251B15; --ink: #F1E6D8; --ink-soft: #B9A891;
+    --line: #3C2E23; --amber: #D79A56; --sage: #7FA282; --berry: #C17E7B; --amber-soft: #3A2A1A;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .brand {
+    font-family: "Fraunces", serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .brand span { color: var(--amber); }
+  .subhead { color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
+
+  select {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  .hero {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .ring {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 22px solid var(--amber-soft);
+    opacity: 0.6;
+  }
+  .hero-label { color: var(--ink-soft); font-size: 14px; margin-bottom: 6px; }
+  .hero-number {
+    font-family: "Fraunces", serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+    position: relative;
+  }
+  .hero-sub { color: var(--ink-soft); font-size: 14px; margin-top: 8px; max-width: 46ch; }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 640px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .kpi-value {
+    font-family: "Fraunces", serif;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .kpi-label { color: var(--ink-soft); font-size: 13px; margin-top: 4px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .grid.thirds { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) {
+    .grid, .grid.thirds { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 20px 12px;
+  }
+  .panel h3 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 17px;
+    margin: 0 0 12px;
+  }
+  .chart-wrap { position: relative; height: 240px; }
+
+  footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 12px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div>
+      <div class="brand">Brewline <span>Coffee Co.</span></div>
+      <div class="subhead">2025 Sales &amp; Customer Performance</div>
+    </div>
+    <div>
+      <label for="storeFilter" style="font-size:13px; color:var(--ink-soft); margin-right:8px;">Store</label>
+      <select id="storeFilter"></select>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="ring"></div>
+    <div class="hero-label">Total revenue, 2025</div>
+    <div class="hero-number" id="heroRevenue">$0</div>
+    <div class="hero-sub">Across 3 stores, from January through December. Filter by store above to see how each location contributed.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-value" id="kpiOrders">–</div><div class="kpi-label">Orders</div></div>
+    <div class="kpi"><div class="kpi-value" id="kpiCustomers">–</div><div class="kpi-label">Unique customers</div></div>
+    <div class="kpi"><div class="kpi-value" id="kpiAOV">–</div><div class="kpi-label">Avg. order value</div></div>
+    <div class="kpi"><div class="kpi-value" id="kpiLoyalty">–</div><div class="kpi-label">Loyalty member share</div></div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>Monthly revenue</h3>
+      <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Revenue by category</h3>
+      <div class="chart-wrap"><canvas id="categoryChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid thirds">
+    <div class="panel">
+      <h3>Top items by revenue</h3>
+      <div class="chart-wrap"><canvas id="itemsChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Revenue by customer age group</h3>
+      <div class="chart-wrap"><canvas id="ageChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:8px;">
+    <h3>Orders by day of week</h3>
+    <div class="chart-wrap"><canvas id="dowChart"></canvas></div>
+  </div>
+
+  <footer>Brewline Coffee Co. — internal sales dashboard · data through Dec 31, 2025</footer>
+</div>
+
+<script>
+const DATA = {"stores": ["Downtown", "Riverside", "University Ave"], "kpis": {"total_revenue": 44316.68, "total_orders": 5994, "unique_customers": 650, "avg_order_value": 7.39, "loyalty_share": 45.1}, "monthly_by_store": {"All": [3812.11, 3492.99, 3835.11, 3971.45, 3465.43, 3805.28, 4039.43, 3639.1, 3598.23, 3781.68, 3534.31, 3341.56], "Downtown": [1606.81, 1454.88, 1608.97, 1713.11, 1505.21, 1517.35, 1633.33, 1513.47, 1458.74, 1627.32, 1415.88, 1295.18], "Riverside": [1116.28, 1145.27, 1176.14, 1212.14, 1026.64, 1258.11, 1289.82, 1087.22, 1101.09, 1183.29, 1093.37, 1084.68], "University Ave": [1089.02, 892.84, 1050.0, 1046.2, 933.58, 1029.82, 1116.28, 1038.41, 1038.4, 971.07, 1025.06, 961.7]}, "category_by_store": {"All": {"Brewed Coffee": 7208.24, "Espresso Drinks": 17746.75, "Food": 8306.85, "Pastries": 6998.6, "Tea": 4056.24}, "Downtown": {"Brewed Coffee": 3032.06, "Espresso Drinks": 7076.18, "Food": 3608.24, "Pastries": 2968.37, "Tea": 1665.4}, "Riverside": {"Brewed Coffee": 2219.54, "Espresso Drinks": 5660.66, "Food": 2526.65, "Pastries": 2089.76, "Tea": 1277.44}, "University Ave": {"Brewed Coffee": 1956.64, "Espresso Drinks": 5009.91, "Food": 2171.96, "Pastries": 1940.47, "Tea": 1113.4}}, "top_items_by_store": {"All": [{"item": "Flat White", "revenue": 3811.25}, {"item": "Cappuccino", "revenue": 3563.92}, {"item": "Latte", "revenue": 3541.85}, {"item": "Americano", "revenue": 3533.82}, {"item": "Espresso Shot", "revenue": 3295.91}, {"item": "Avocado Toast", "revenue": 2958.0}], "Downtown": [{"item": "Cappuccino", "revenue": 1505.92}, {"item": "Flat White", "revenue": 1454.65}, {"item": "Americano", "revenue": 1447.85}, {"item": "Latte", "revenue": 1440.99}, {"item": "Bagel", "revenue": 1347.91}, {"item": "Espresso Shot", "revenue": 1226.77}], "Riverside": [{"item": "Flat White", "revenue": 1195.36}, {"item": "Espresso Shot", "revenue": 1159.94}, {"item": "Cappuccino", "revenue": 1153.33}, {"item": "Latte", "revenue": 1093.27}, {"item": "Americano", "revenue": 1058.76}, {"item": "Avocado Toast", "revenue": 917.37}], "University Ave": [{"item": "Flat White", "revenue": 1161.24}, {"item": "Americano", "revenue": 1027.21}, {"item": "Latte", "revenue": 1007.59}, {"item": "Espresso Shot", "revenue": 909.2}, {"item": "Cappuccino", "revenue": 904.67}, {"item": "Avocado Toast", "revenue": 826.14}]}, "age_group_by_store": {"All": {"18-24": 5534.35, "25-34": 8120.26, "35-44": 9839.53, "45-54": 7694.38, "55+": 13128.16}, "Downtown": {"18-24": 2275.24, "25-34": 3396.67, "35-44": 4033.87, "45-54": 3213.95, "55+": 5430.52}, "Riverside": {"18-24": 1675.17, "25-34": 2547.79, "35-44": 2946.54, "45-54": 2504.86, "55+": 4099.69}, "University Ave": {"18-24": 1583.94, "25-34": 2175.8, "35-44": 2859.12, "45-54": 1975.57, "55+": 3597.95}}, "dow_by_store": {"All": {"Monday": 884, "Tuesday": 860, "Wednesday": 830, "Thursday": 838, "Friday": 867, "Saturday": 861, "Sunday": 854}, "Downtown": {"Monday": 370, "Tuesday": 375, "Wednesday": 337, "Thursday": 341, "Friday": 342, "Saturday": 354, "Sunday": 352}, "Riverside": {"Monday": 262, "Tuesday": 264, "Wednesday": 261, "Thursday": 266, "Friday": 303, "Saturday": 255, "Sunday": 261}, "University Ave": {"Monday": 252, "Tuesday": 221, "Wednesday": 232, "Thursday": 231, "Friday": 222, "Saturday": 252, "Sunday": 241}}};
+
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const fmtMoney = n => "$" + n.toLocaleString(undefined, {maximumFractionDigits:0});
+
+const css = getComputedStyle(document.documentElement);
+const cAmber = "#B9793B", cSage = "#5C7A5E", cBerry = "#9C5B58", cInk = "#6B5747";
+
+const select = document.getElementById("storeFilter");
+select.innerHTML = '<option value="All">All stores</option>' +
+  DATA.stores.map(s => `<option value="${s}">${s}</option>`).join("");
+
+let charts = {};
+
+function makeChart(id, config) {
+  const ctx = document.getElementById(id);
+  if (charts[id]) charts[id].destroy();
+  charts[id] = new Chart(ctx, config);
+}
+
+function render(store) {
+  const monthly = DATA.monthly_by_store[store];
+  const cats = DATA.category_by_store[store];
+  const items = DATA.top_items_by_store[store];
+  const ages = DATA.age_group_by_store[store];
+  const dow = DATA.dow_by_store[store];
+
+  const totalRev = monthly.reduce((a,b) => a+b, 0);
+  document.getElementById("heroRevenue").textContent = fmtMoney(totalRev);
+
+  if (store === "All") {
+    document.getElementById("kpiOrders").textContent = DATA.kpis.total_orders.toLocaleString();
+    document.getElementById("kpiCustomers").textContent = DATA.kpis.unique_customers.toLocaleString();
+    document.getElementById("kpiAOV").textContent = "$" + DATA.kpis.avg_order_value.toFixed(2);
+    document.getElementById("kpiLoyalty").textContent = DATA.kpis.loyalty_share + "%";
+  } else {
+    const orders = Object.values(dow).reduce((a,b) => a+b, 0);
+    document.getElementById("kpiOrders").textContent = orders.toLocaleString();
+    document.getElementById("kpiCustomers").textContent = "—";
+    document.getElementById("kpiAOV").textContent = "$" + (totalRev/orders).toFixed(2);
+    document.getElementById("kpiLoyalty").textContent = "—";
+  }
+
+  makeChart("monthlyChart", {
+    type: "line",
+    data: { labels: MONTHS, datasets: [{
+      data: monthly, borderColor: cAmber, backgroundColor: cAmber + "33",
+      fill: true, tension: 0.3, pointRadius: 3
+    }]},
+    options: { plugins: { legend: { display: false } },
+      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } },
+                x: { ticks: { color: cInk }, grid: { display: false } } },
+      responsive: true, maintainAspectRatio: false }
+  });
+
+  const catLabels = Object.keys(cats);
+  makeChart("categoryChart", {
+    type: "doughnut",
+    data: { labels: catLabels, datasets: [{
+      data: Object.values(cats),
+      backgroundColor: [cAmber, cSage, cBerry, "#C9A66B", "#7A9E88"]
+    }]},
+    options: { plugins: { legend: { position: "bottom", labels: { color: cInk, boxWidth: 12, font: {size: 11} } } },
+      responsive: true, maintainAspectRatio: false }
+  });
+
+  makeChart("itemsChart", {
+    type: "bar",
+    data: { labels: items.map(i => i.item), datasets: [{
+      data: items.map(i => i.revenue), backgroundColor: cBerry
+    }]},
+    options: { indexAxis: "y", plugins: { legend: { display: false } },
+      scales: { y: { ticks: { color: cInk } }, x: { ticks: { color: cInk }, grid: { color: "#00000010" } } },
+      responsive: true, maintainAspectRatio: false }
+  });
+
+  makeChart("ageChart", {
+    type: "bar",
+    data: { labels: Object.keys(ages), datasets: [{
+      data: Object.values(ages), backgroundColor: cSage
+    }]},
+    options: { plugins: { legend: { display: false } },
+      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } }, x: { ticks: { color: cInk }, grid: { display: false } } },
+      responsive: true, maintainAspectRatio: false }
+  });
+
+  makeChart("dowChart", {
+    type: "bar",
+    data: { labels: Object.keys(dow), datasets: [{
+      data: Object.values(dow), backgroundColor: cAmber
+    }]},
+    options: { plugins: { legend: { display: false } },
+      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } }, x: { ticks: { color: cInk }, grid: { display: false } } },
+      responsive: true, maintainAspectRatio: false }
+  });
+}
+
+select.addEventListener("change", e => render(e.target.value));
+render("All");
+</script>
+</body>
+</html>

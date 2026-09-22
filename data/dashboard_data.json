@@ -1,0 +1,276 @@
+{
+ "stores": [
+  "Downtown",
+  "Riverside",
+  "University Ave"
+ ],
+ "kpis": {
+  "total_revenue": 44316.68,
+  "total_orders": 5994,
+  "unique_customers": 650,
+  "avg_order_value": 7.39,
+  "loyalty_share": 45.1
+ },
+ "monthly_by_store": {
+  "All": [
+   3812.11,
+   3492.99,
+   3835.11,
+   3971.45,
+   3465.43,
+   3805.28,
+   4039.43,
+   3639.1,
+   3598.23,
+   3781.68,
+   3534.31,
+   3341.56
+  ],
+  "Downtown": [
+   1606.81,
+   1454.88,
+   1608.97,
+   1713.11,
+   1505.21,
+   1517.35,
+   1633.33,
+   1513.47,
+   1458.74,
+   1627.32,
+   1415.88,
+   1295.18
+  ],
+  "Riverside": [
+   1116.28,
+   1145.27,
+   1176.14,
+   1212.14,
+   1026.64,
+   1258.11,
+   1289.82,
+   1087.22,
+   1101.09,
+   1183.29,
+   1093.37,
+   1084.68
+  ],
+  "University Ave": [
+   1089.02,
+   892.84,
+   1050.0,
+   1046.2,
+   933.58,
+   1029.82,
+   1116.28,
+   1038.41,
+   1038.4,
+   971.07,
+   1025.06,
+   961.7
+  ]
+ },
+ "category_by_store": {
+  "All": {
+   "Brewed Coffee": 7208.24,
+   "Espresso Drinks": 17746.75,
+   "Food": 8306.85,
+   "Pastries": 6998.6,
+   "Tea": 4056.24
+  },
+  "Downtown": {
+   "Brewed Coffee": 3032.06,
+   "Espresso Drinks": 7076.18,
+   "Food": 3608.24,
+   "Pastries": 2968.37,
+   "Tea": 1665.4
+  },
+  "Riverside": {
+   "Brewed Coffee": 2219.54,
+   "Espresso Drinks": 5660.66,
+   "Food": 2526.65,
+   "Pastries": 2089.76,
+   "Tea": 1277.44
+  },
+  "University Ave": {
+   "Brewed Coffee": 1956.64,
+   "Espresso Drinks": 5009.91,
+   "Food": 2171.96,
+   "Pastries": 1940.47,
+   "Tea": 1113.4
+  }
+ },
+ "top_items_by_store": {
+  "All": [
+   {
+    "item": "Flat White",
+    "revenue": 3811.25
+   },
+   {
+    "item": "Cappuccino",
+    "revenue": 3563.92
+   },
+   {
+    "item": "Latte",
+    "revenue": 3541.85
+   },
+   {
+    "item": "Americano",
+    "revenue": 3533.82
+   },
+   {
+    "item": "Espresso Shot",
+    "revenue": 3295.91
+   },
+   {
+    "item": "Avocado Toast",
+    "revenue": 2958.0
+   }
+  ],
+  "Downtown": [
+   {
+    "item": "Cappuccino",
+    "revenue": 1505.92
+   },
+   {
+    "item": "Flat White",
+    "revenue": 1454.65
+   },
+   {
+    "item": "Americano",
+    "revenue": 1447.85
+   },
+   {
+    "item": "Latte",
+    "revenue": 1440.99
+   },
+   {
+    "item": "Bagel",
+    "revenue": 1347.91
+   },
+   {
+    "item": "Espresso Shot",
+    "revenue": 1226.77
+   }
+  ],
+  "Riverside": [
+   {
+    "item": "Flat White",
+    "revenue": 1195.36
+   },
+   {
+    "item": "Espresso Shot",
+    "revenue": 1159.94
+   },
+   {
+    "item": "Cappuccino",
+    "revenue": 1153.33
+   },
+   {
+    "item": "Latte",
+    "revenue": 1093.27
+   },
+   {
+    "item": "Americano",
+    "revenue": 1058.76
+   },
+   {
+    "item": "Avocado Toast",
+    "revenue": 917.37
+   }
+  ],
+  "University Ave": [
+   {
+    "item": "Flat White",
+    "revenue": 1161.24
+   },
+   {
+    "item": "Americano",
+    "revenue": 1027.21
+   },
+   {
+    "item": "Latte",
+    "revenue": 1007.59
+   },
+   {
+    "item": "Espresso Shot",
+    "revenue": 909.2
+   },
+   {
+    "item": "Cappuccino",
+    "revenue": 904.67
+   },
+   {
+    "item": "Avocado Toast",
+    "revenue": 826.14
+   }
+  ]
+ },
+ "age_group_by_store": {
+  "All": {
+   "18-24": 5534.35,
+   "25-34": 8120.26,
+   "35-44": 9839.53,
+   "45-54": 7694.38,
+   "55+": 13128.16
+  },
+  "Downtown": {
+   "18-24": 2275.24,
+   "25-34": 3396.67,
+   "35-44": 4033.87,
+   "45-54": 3213.95,
+   "55+": 5430.52
+  },
+  "Riverside": {
+   "18-24": 1675.17,
+   "25-34": 2547.79,
+   "35-44": 2946.54,
+   "45-54": 2504.86,
+   "55+": 4099.69
+  },
+  "University Ave": {
+   "18-24": 1583.94,
+   "25-34": 2175.8,
+   "35-44": 2859.12,
+   "45-54": 1975.57,
+   "55+": 3597.95
+  }
+ },
+ "dow_by_store": {
+  "All": {
+   "Monday": 884,
+   "Tuesday": 860,
+   "Wednesday": 830,
+   "Thursday": 838,
+   "Friday": 867,
+   "Saturday": 861,
+   "Sunday": 854
+  },
+  "Downtown": {
+   "Monday": 370,
+   "Tuesday": 375,
+   "Wednesday": 337,
+   "Thursday": 341,
+   "Friday": 342,
+   "Saturday": 354,
+   "Sunday": 352
+  },
+  "Riverside": {
+   "Monday": 262,
+   "Tuesday": 264,
+   "Wednesday": 261,
+   "Thursday": 266,
+   "Friday": 303,
+   "Saturday": 255,
+   "Sunday": 261
+  },
+  "University Ave": {
+   "Monday": 252,
+   "Tuesday": 221,
+   "Wednesday": 232,
+   "Thursday": 231,
+   "Friday": 222,
+   "Saturday": 252,
+   "Sunday": 241
+  }
+ }
+}

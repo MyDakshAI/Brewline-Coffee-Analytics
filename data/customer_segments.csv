@@ -1,0 +1,651 @@
+customer_id,recency,frequency,monetary,R_score,F_score,M_score,RFM_score,segment,loyalty_member
+C1000,64,8,80.33,2,2,4,8,Lost / Hibernating,True
+C1001,26,6,28.959999999999997,3,1,1,5,Needs Attention,False
+C1002,7,12,103.71,5,4,5,14,Champions,False
+C1003,31,11,96.53999999999999,3,4,5,12,Needs Attention,True
+C1004,10,10,52.88,4,3,2,9,Loyal Customers,False
+C1005,230,4,33.93,1,1,1,3,Lost / Hibernating,True
+C1006,20,14,113.00999999999999,4,5,5,14,Champions,False
+C1007,6,15,88.56,5,5,4,14,Champions,True
+C1008,174,8,87.12,1,2,4,7,Lost / Hibernating,False
+C1009,15,10,83.9,4,3,4,11,Loyal Customers,True
+C1010,2,6,64.08,5,1,3,9,New / Promising,True
+C1011,24,11,85.45,3,4,4,11,Needs Attention,False
+C1012,1,10,69.97,5,3,3,11,Loyal Customers,True
+C1013,89,8,70.32,1,2,3,6,Lost / Hibernating,True
+C1014,44,9,76.14,2,3,4,9,Needs Attention,True
+C1015,6,10,61.09,5,3,3,11,Loyal Customers,False
+C1016,73,15,83.36,1,5,4,10,At Risk,False
+C1017,59,9,68.01,2,3,3,8,Needs Attention,False
+C1018,301,1,5.52,1,1,1,3,Lost / Hibernating,True
+C1019,98,12,113.66,1,4,5,10,At Risk,True
+C1020,44,11,101.92999999999999,2,4,5,11,At Risk,True
+C1021,3,14,116.23,5,5,5,15,Champions,False
+C1022,37,9,73.74000000000001,3,3,3,9,Needs Attention,False
+C1023,20,8,76.23,4,2,4,10,New / Promising,False
+C1024,36,2,7.8100000000000005,3,1,1,5,Needs Attention,False
+C1025,5,7,36.28,5,2,1,8,New / Promising,True
+C1026,50,11,62.63,2,4,3,9,At Risk,False
+C1027,66,6,36.28,2,1,1,4,Lost / Hibernating,False
+C1028,2,12,85.13,5,4,4,13,Champions,True
+C1029,62,2,12.129999999999999,2,1,1,4,Lost / Hibernating,True
+C1030,11,5,45.22,4,1,2,7,New / Promising,True
+C1031,104,9,64.26,1,3,3,7,Needs Attention,True
+C1032,28,8,47.93,3,2,2,7,Needs Attention,True
+C1033,15,19,133.86,4,5,5,14,Champions,False
+C1034,30,6,34.69,3,1,1,5,Needs Attention,False
+C1035,33,6,43.18,3,1,1,5,Needs Attention,True
+C1036,80,12,71.03,1,4,3,8,At Risk,False
+C1037,49,7,63.85,2,2,3,7,Lost / Hibernating,False
+C1038,45,5,42.55,2,1,1,4,Lost / Hibernating,False
+C1039,43,9,69.02,2,3,3,8,Needs Attention,False
+C1040,41,5,49.85,2,1,2,5,Lost / Hibernating,True
+C1041,21,8,68.69,4,2,3,9,New / Promising,False
+C1042,29,10,91.0,3,3,5,11,Needs Attention,True
+C1043,1,6,37.11,5,1,1,7,New / Promising,True
+C1044,28,9,43.61,3,3,1,7,Needs Attention,False
+C1045,1,17,117.08,5,5,5,15,Champions,False
+C1046,78,8,65.89,1,2,3,6,Lost / Hibernating,False
+C1047,3,10,72.93,5,3,3,11,Loyal Customers,False
+C1048,1,10,69.05,5,3,3,11,Loyal Customers,False
+C1049,3,7,35.13,5,2,1,8,New / Promising,True
+C1050,59,9,66.26,2,3,3,8,Needs Attention,True
+C1051,10,5,46.53,4,1,2,7,New / Promising,True
+C1052,28,11,96.74,3,4,5,12,Needs Attention,True
+C1053,39,11,79.29,3,4,4,11,Needs Attention,False
+C1054,91,8,50.86,1,2,2,5,Lost / Hibernating,True
+C1055,59,10,77.29,2,3,4,9,Needs Attention,False
+C1056,98,5,44.29,1,1,1,3,Lost / Hibernating,False
+C1057,78,2,16.76,1,1,1,3,Lost / Hibernating,False
+C1058,14,9,54.12,4,3,2,9,Loyal Customers,False
+C1059,7,9,80.19,5,3,4,12,Loyal Customers,False
+C1060,23,9,71.02,4,3,3,10,Loyal Customers,False
+C1061,72,5,57.62,1,1,2,4,Lost / Hibernating,False
+C1062,12,13,82.65,4,5,4,13,Champions,False
+C1063,51,9,65.35,2,3,3,8,Needs Attention,False
+C1064,172,8,55.81,1,2,2,5,Lost / Hibernating,False
+C1065,48,7,59.87,2,2,2,6,Lost / Hibernating,True
+C1066,8,11,59.73,5,4,2,11,Loyal Customers,False
+C1067,47,9,67.5,2,3,3,8,Needs Attention,True
+C1068,4,3,23.59,5,1,1,7,New / Promising,False
+C1069,68,11,72.55,1,4,3,8,At Risk,False
+C1070,35,8,74.92,3,2,4,9,Needs Attention,False
+C1071,74,7,62.28,1,2,3,6,Lost / Hibernating,False
+C1072,5,20,133.83,5,5,5,15,Champions,True
+C1073,86,9,68.46,1,3,3,7,Needs Attention,False
+C1074,17,9,93.99000000000001,4,3,5,12,Loyal Customers,True
+C1075,143,8,65.62,1,2,3,6,Lost / Hibernating,True
+C1076,23,11,61.22,4,4,3,11,Loyal Customers,True
+C1077,111,8,47.2,1,2,2,5,Lost / Hibernating,True
+C1078,78,4,37.21,1,1,1,3,Lost / Hibernating,False
+C1079,23,11,108.44,4,4,5,13,Champions,False
+C1080,52,5,40.269999999999996,2,1,1,4,Lost / Hibernating,True
+C1081,6,12,74.42999999999999,5,4,4,13,Champions,True
+C1082,89,16,107.24,1,5,5,11,At Risk,True
+C1083,121,7,36.349999999999994,1,2,1,4,Lost / Hibernating,True
+C1084,13,8,64.48,4,2,3,9,New / Promising,True
+C1085,108,8,61.019999999999996,1,2,3,6,Lost / Hibernating,False
+C1086,3,10,52.3,5,3,2,10,Loyal Customers,True
+C1087,48,11,75.25,2,4,4,10,At Risk,True
+C1088,12,14,111.14999999999999,4,5,5,14,Champions,True
+C1089,45,9,62.06,2,3,3,8,Needs Attention,True
+C1090,56,9,72.94,2,3,3,8,Needs Attention,True
+C1091,105,9,52.8,1,3,2,6,Needs Attention,True
+C1092,2,7,42.230000000000004,5,2,1,8,New / Promising,False
+C1093,4,3,18.78,5,1,1,7,New / Promising,True
+C1094,49,8,69.28,2,2,3,7,Lost / Hibernating,False
+C1095,106,5,28.650000000000002,1,1,1,3,Lost / Hibernating,False
+C1096,52,3,11.120000000000001,2,1,1,4,Lost / Hibernating,True
+C1097,120,7,54.23,1,2,2,5,Lost / Hibernating,False
+C1098,34,11,86.32,3,4,4,11,Needs Attention,False
+C1099,90,7,81.12,1,2,4,7,Lost / Hibernating,False
+C1100,53,8,40.09,2,2,1,5,Lost / Hibernating,True
+C1101,17,13,65.86,4,5,3,12,Loyal Customers,True
+C1102,15,7,47.699999999999996,4,2,2,8,New / Promising,True
+C1103,35,6,46.71,3,1,2,6,Needs Attention,False
+C1104,23,6,51.78,4,1,2,7,New / Promising,False
+C1105,32,12,79.84,3,4,4,11,Needs Attention,True
+C1106,25,7,38.68,3,2,1,6,Needs Attention,True
+C1107,9,11,76.53,5,4,4,13,Champions,False
+C1108,29,12,65.56,3,4,3,10,Needs Attention,True
+C1109,108,8,38.82,1,2,1,4,Lost / Hibernating,False
+C1110,141,6,51.11,1,1,2,4,Lost / Hibernating,False
+C1111,83,9,69.42,1,3,3,7,Needs Attention,True
+C1112,18,10,67.84,4,3,3,10,Loyal Customers,True
+C1113,21,11,76.27,4,4,4,12,Champions,True
+C1114,13,7,71.28,4,2,3,9,New / Promising,False
+C1115,38,9,76.75999999999999,3,3,4,10,Needs Attention,True
+C1116,16,9,66.23,4,3,3,10,Loyal Customers,True
+C1117,27,11,76.89,3,4,4,11,Needs Attention,True
+C1118,1,13,89.78,5,5,5,15,Champions,True
+C1119,58,8,58.28,2,2,2,6,Lost / Hibernating,False
+C1120,32,6,52.15,3,1,2,6,Needs Attention,True
+C1121,3,13,64.22,5,5,3,13,Loyal Customers,False
+C1122,93,4,42.05,1,1,1,3,Lost / Hibernating,False
+C1123,76,6,53.96,1,1,2,4,Lost / Hibernating,False
+C1124,77,6,45.59,1,1,2,4,Lost / Hibernating,True
+C1125,12,4,33.49,4,1,1,6,New / Promising,False
+C1126,7,8,47.43,5,2,2,9,New / Promising,False
+C1127,23,11,72.46,4,4,3,11,Loyal Customers,True
+C1128,12,5,34.49,4,1,1,6,New / Promising,False
+C1129,41,16,123.28,2,5,5,12,At Risk,False
+C1130,8,15,128.89,5,5,5,15,Champions,True
+C1131,108,6,34.94,1,1,1,3,Lost / Hibernating,False
+C1132,176,6,48.300000000000004,1,1,2,4,Lost / Hibernating,False
+C1133,10,7,68.13,4,2,3,9,New / Promising,False
+C1134,59,6,65.58,2,1,3,6,Lost / Hibernating,False
+C1135,1,11,92.24,5,4,5,14,Champions,True
+C1136,23,10,61.18,4,3,3,10,Loyal Customers,False
+C1137,52,7,36.25,2,2,1,5,Lost / Hibernating,True
+C1138,24,11,88.6,3,4,4,11,Needs Attention,False
+C1139,82,8,89.23,1,2,5,8,Lost / Hibernating,False
+C1140,6,13,88.05,5,5,4,14,Champions,True
+C1141,76,10,110.41,1,3,5,9,Needs Attention,True
+C1142,73,12,98.46,1,4,5,10,At Risk,True
+C1143,76,7,58.849999999999994,1,2,2,5,Lost / Hibernating,True
+C1144,4,10,81.78,5,3,4,12,Loyal Customers,True
+C1145,24,7,65.21000000000001,3,2,3,8,Needs Attention,True
+C1146,1,13,95.47,5,5,5,15,Champions,True
+C1147,112,6,47.12,1,1,2,4,Lost / Hibernating,True
+C1148,68,6,51.66,1,1,2,4,Lost / Hibernating,False
+C1149,50,6,43.72,2,1,1,4,Lost / Hibernating,False
+C1150,188,9,78.7,1,3,4,8,Needs Attention,False
+C1151,126,6,38.83,1,1,1,3,Lost / Hibernating,True
+C1152,8,7,36.089999999999996,5,2,1,8,New / Promising,False
+C1153,64,8,67.8,2,2,3,7,Lost / Hibernating,False
+C1154,84,9,48.519999999999996,1,3,2,6,Needs Attention,True
+C1155,36,6,41.89,3,1,1,5,Needs Attention,True
+C1156,39,12,97.22,3,4,5,12,Needs Attention,False
+C1157,67,5,39.72,2,1,1,4,Lost / Hibernating,True
+C1158,129,6,44.57,1,1,1,3,Lost / Hibernating,False
+C1159,25,9,65.78,3,3,3,9,Needs Attention,False
+C1160,30,14,130.63,3,5,5,13,Needs Attention,True
+C1161,13,5,32.22,4,1,1,6,New / Promising,True
+C1162,25,17,120.34,3,5,5,13,Needs Attention,False
+C1163,2,7,63.83,5,2,3,10,New / Promising,False
+C1164,8,8,45.72,5,2,2,9,New / Promising,True
+C1165,19,10,64.26,4,3,3,10,Loyal Customers,False
+C1166,1,11,94.06,5,4,5,14,Champions,False
+C1167,28,11,86.13,3,4,4,11,Needs Attention,False
+C1168,21,11,78.58,4,4,4,12,Champions,False
+C1169,26,18,139.06,3,5,5,13,Needs Attention,True
+C1170,247,8,62.89,1,2,3,6,Lost / Hibernating,True
+C1171,14,6,33.8,4,1,1,6,New / Promising,False
+C1172,65,5,29.34,2,1,1,4,Lost / Hibernating,True
+C1173,47,14,123.87,2,5,5,12,At Risk,False
+C1174,9,10,89.6,5,3,5,13,Loyal Customers,False
+C1175,35,8,52.26,3,2,2,7,Needs Attention,True
+C1176,11,5,43.879999999999995,4,1,1,6,New / Promising,False
+C1177,24,13,85.34,3,5,4,12,Needs Attention,True
+C1178,3,13,89.36,5,5,5,15,Champions,False
+C1179,30,5,47.66,3,1,2,6,Needs Attention,True
+C1180,12,12,110.99000000000001,4,4,5,13,Champions,False
+C1181,80,7,43.099999999999994,1,2,1,4,Lost / Hibernating,False
+C1182,11,16,140.29,4,5,5,14,Champions,True
+C1183,63,11,71.64,2,4,3,9,At Risk,False
+C1184,26,10,80.09,3,3,4,10,Needs Attention,False
+C1185,27,7,45.71,3,2,2,7,Needs Attention,False
+C1186,17,5,36.690000000000005,4,1,1,6,New / Promising,False
+C1187,46,7,33.48,2,2,1,5,Lost / Hibernating,False
+C1188,57,9,54.63,2,3,2,7,Needs Attention,True
+C1189,32,14,101.41,3,5,5,13,Needs Attention,False
+C1190,23,13,121.47,4,5,5,14,Champions,True
+C1191,17,13,95.71000000000001,4,5,5,14,Champions,False
+C1192,28,9,85.13,3,3,4,10,Needs Attention,False
+C1193,4,10,81.86,5,3,4,12,Loyal Customers,True
+C1194,53,11,78.24,2,4,4,10,At Risk,True
+C1195,47,10,73.8,2,3,4,9,Needs Attention,False
+C1196,21,7,57.440000000000005,4,2,2,8,New / Promising,True
+C1197,27,13,72.3,3,5,3,11,Needs Attention,False
+C1198,24,11,80.24,3,4,4,11,Needs Attention,True
+C1199,124,12,75.57,1,4,4,9,At Risk,False
+C1200,2,12,79.69,5,4,4,13,Champions,True
+C1201,36,12,70.2,3,4,3,10,Needs Attention,True
+C1202,41,7,75.76,2,2,4,8,Lost / Hibernating,False
+C1203,43,11,80.08,2,4,4,10,At Risk,False
+C1204,89,10,50.81,1,3,2,6,Needs Attention,True
+C1205,68,5,45.04,1,1,1,3,Lost / Hibernating,False
+C1206,4,8,50.81,5,2,2,9,New / Promising,False
+C1207,66,5,45.5,2,1,2,5,Lost / Hibernating,False
+C1208,3,11,62.04,5,4,3,12,Loyal Customers,True
+C1209,3,7,49.96,5,2,2,9,New / Promising,False
+C1210,31,5,31.08,3,1,1,5,Needs Attention,False
+C1211,142,6,51.79,1,1,2,4,Lost / Hibernating,False
+C1212,66,14,119.97,2,5,5,12,At Risk,False
+C1213,31,12,77.38,3,4,4,11,Needs Attention,False
+C1214,13,13,90.22,4,5,5,14,Champions,True
+C1215,8,15,90.79,5,5,5,15,Champions,False
+C1216,25,12,89.56,3,4,5,12,Needs Attention,False
+C1217,150,4,28.83,1,1,1,3,Lost / Hibernating,False
+C1218,1,10,78.72,5,3,4,12,Loyal Customers,True
+C1219,9,13,81.67,5,5,4,14,Champions,True
+C1220,7,8,42.94,5,2,1,8,New / Promising,False
+C1221,40,8,46.83,2,2,2,6,Lost / Hibernating,True
+C1222,5,14,125.55,5,5,5,15,Champions,False
+C1223,8,8,60.35,5,2,2,9,New / Promising,True
+C1224,64,4,20.48,2,1,1,4,Lost / Hibernating,False
+C1225,55,7,49.82,2,2,2,6,Lost / Hibernating,False
+C1226,4,10,102.32000000000001,5,3,5,13,Loyal Customers,True
+C1227,84,9,54.75,1,3,2,6,Needs Attention,True
+C1228,66,13,106.87,2,5,5,12,At Risk,False
+C1229,47,8,58.59,2,2,2,6,Lost / Hibernating,False
+C1230,65,11,89.84,2,4,5,11,At Risk,True
+C1231,119,7,43.03,1,2,1,4,Lost / Hibernating,False
+C1232,83,3,14.75,1,1,1,3,Lost / Hibernating,False
+C1233,26,5,29.560000000000002,3,1,1,5,Needs Attention,False
+C1234,99,12,86.78999999999999,1,4,4,9,At Risk,True
+C1235,114,10,96.7,1,3,5,9,Needs Attention,True
+C1236,53,8,69.92,2,2,3,7,Lost / Hibernating,True
+C1237,4,6,43.91,5,1,1,7,New / Promising,True
+C1238,33,13,94.05,3,5,5,13,Needs Attention,True
+C1239,13,10,76.35,4,3,4,11,Loyal Customers,False
+C1240,36,8,34.36,3,2,1,6,Needs Attention,True
+C1241,84,9,77.81,1,3,4,8,Needs Attention,False
+C1242,5,2,19.7,5,1,1,7,New / Promising,True
+C1243,43,4,29.740000000000002,2,1,1,4,Lost / Hibernating,True
+C1244,53,9,95.9,2,3,5,10,Needs Attention,False
+C1245,33,6,38.17,3,1,1,5,Needs Attention,False
+C1246,85,6,37.47,1,1,1,3,Lost / Hibernating,True
+C1247,1,9,71.38,5,3,3,11,Loyal Customers,True
+C1248,142,10,76.05,1,3,4,8,Needs Attention,True
+C1249,117,11,75.87,1,4,4,9,At Risk,False
+C1250,26,11,70.61,3,4,3,10,Needs Attention,False
+C1251,29,8,62.230000000000004,3,2,3,8,Needs Attention,True
+C1252,2,12,101.84,5,5,5,15,Champions,True
+C1253,47,6,52.730000000000004,2,1,2,5,Lost / Hibernating,False
+C1254,4,10,107.17,5,3,5,13,Loyal Customers,False
+C1255,39,6,56.37,3,1,2,6,Needs Attention,False
+C1256,11,4,14.6,4,1,1,6,New / Promising,False
+C1257,25,12,97.88,3,5,5,13,Needs Attention,True
+C1258,10,12,83.79,4,5,4,13,Champions,True
+C1259,43,7,50.65,2,2,2,6,Lost / Hibernating,True
+C1260,13,10,74.19,4,3,4,11,Loyal Customers,False
+C1261,51,8,57.32,2,2,2,6,Lost / Hibernating,False
+C1262,1,6,42.46,5,1,1,7,New / Promising,False
+C1263,22,13,89.55,4,5,5,14,Champions,False
+C1264,4,10,71.76,5,3,3,11,Loyal Customers,False
+C1265,27,9,63.95,3,3,3,9,Needs Attention,False
+C1266,10,11,67.09,4,4,3,11,Loyal Customers,True
+C1267,57,9,69.22,2,3,3,8,Needs Attention,True
+C1268,60,9,74.12,2,3,4,9,Needs Attention,True
+C1269,4,7,38.42999999999999,5,2,1,8,New / Promising,False
+C1270,29,4,48.18,3,1,2,6,Needs Attention,True
+C1271,129,6,49.129999999999995,1,1,2,4,Lost / Hibernating,False
+C1272,22,11,96.31,4,4,5,13,Champions,False
+C1273,66,6,38.54,2,1,1,4,Lost / Hibernating,False
+C1274,15,11,105.36,4,4,5,13,Champions,True
+C1275,10,6,40.07,4,1,1,6,New / Promising,True
+C1276,1,9,59.94,5,3,2,10,Loyal Customers,True
+C1277,3,11,61.550000000000004,5,4,3,12,Loyal Customers,False
+C1278,16,11,89.7,4,4,5,13,Champions,False
+C1279,87,10,79.72,1,4,4,9,At Risk,False
+C1280,31,10,52.21,3,4,2,9,Needs Attention,True
+C1281,29,7,53.73,3,2,2,7,Needs Attention,True
+C1282,16,11,76.9,4,4,4,12,Champions,True
+C1283,58,11,89.06,2,4,5,11,At Risk,False
+C1284,64,9,79.05,2,3,4,9,Needs Attention,False
+C1285,4,11,81.5,5,4,4,13,Champions,True
+C1286,168,5,35.01,1,1,1,3,Lost / Hibernating,False
+C1287,86,10,43.97,1,4,1,6,At Risk,True
+C1288,2,10,78.91,5,4,4,13,Champions,False
+C1289,37,11,71.98,3,4,3,10,Needs Attention,True
+C1290,132,7,56.67,1,2,2,5,Lost / Hibernating,True
+C1291,62,6,32.49,2,1,1,4,Lost / Hibernating,False
+C1292,8,8,64.03,5,2,3,10,New / Promising,True
+C1293,88,11,74.2,1,4,4,9,At Risk,True
+C1294,115,12,75.57,1,5,4,10,At Risk,False
+C1295,59,10,91.53,2,4,5,11,At Risk,True
+C1296,5,5,35.91,5,1,1,7,New / Promising,False
+C1297,9,6,51.56,5,1,2,8,New / Promising,False
+C1298,30,12,91.32,3,5,5,13,Needs Attention,False
+C1299,1,8,59.06,5,2,2,9,New / Promising,True
+C1300,4,15,113.7,5,5,5,15,Champions,False
+C1301,1,5,36.27,5,1,1,7,New / Promising,True
+C1302,10,6,46.95,4,1,2,7,New / Promising,True
+C1303,45,10,64.27,2,4,3,9,At Risk,True
+C1304,25,7,50.660000000000004,3,2,2,7,Needs Attention,False
+C1305,1,11,86.2,5,4,4,13,Champions,False
+C1306,1,6,49.47,5,1,2,8,New / Promising,False
+C1307,27,7,56.269999999999996,3,2,2,7,Needs Attention,False
+C1308,14,11,74.34,4,4,4,12,Champions,False
+C1309,69,7,55.16,1,2,2,5,Lost / Hibernating,False
+C1310,104,4,25.79,1,1,1,3,Lost / Hibernating,False
+C1311,53,8,60.980000000000004,2,2,3,7,Lost / Hibernating,False
+C1312,13,12,105.15,4,5,5,14,Champions,True
+C1313,45,10,91.58,2,4,5,11,At Risk,True
+C1314,1,8,43.92,5,2,1,8,New / Promising,False
+C1315,35,8,57.709999999999994,3,2,2,7,Needs Attention,False
+C1316,16,9,50.84,4,3,2,9,Loyal Customers,False
+C1317,9,2,7.03,5,1,1,7,New / Promising,True
+C1318,22,18,147.55,4,5,5,14,Champions,False
+C1319,15,13,111.38,4,5,5,14,Champions,True
+C1320,51,16,128.31,2,5,5,12,At Risk,True
+C1321,153,4,31.56,1,1,1,3,Lost / Hibernating,True
+C1322,39,13,112.82,3,5,5,13,Needs Attention,True
+C1323,4,8,87.1,5,2,4,11,New / Promising,False
+C1324,3,9,74.46,5,3,4,12,Loyal Customers,True
+C1325,47,6,35.08,2,1,1,4,Lost / Hibernating,False
+C1326,148,11,73.16,1,4,3,8,At Risk,False
+C1327,2,11,58.78,5,4,2,11,Loyal Customers,True
+C1328,72,5,26.07,1,1,1,3,Lost / Hibernating,False
+C1329,35,11,73.64,3,4,3,10,Needs Attention,True
+C1330,4,12,86.3,5,5,4,14,Champions,False
+C1331,6,16,104.62,5,5,5,15,Champions,False
+C1332,41,8,60.5,2,2,3,7,Lost / Hibernating,False
+C1333,93,5,45.32,1,1,2,4,Lost / Hibernating,False
+C1334,4,15,100.24000000000001,5,5,5,15,Champions,True
+C1335,27,19,120.99,3,5,5,13,Needs Attention,False
+C1336,5,12,80.15,5,5,4,14,Champions,True
+C1337,53,9,50.690000000000005,2,3,2,7,Needs Attention,True
+C1338,12,7,36.45,4,2,1,7,New / Promising,True
+C1339,40,12,91.79,2,5,5,12,At Risk,False
+C1340,23,15,120.83,4,5,5,14,Champions,False
+C1341,72,7,57.46,1,2,2,5,Lost / Hibernating,False
+C1342,19,10,75.75,4,4,4,12,Champions,False
+C1343,101,10,80.13,1,4,4,9,At Risk,True
+C1344,10,15,128.05,4,5,5,14,Champions,False
+C1345,32,8,47.69,3,2,2,7,Needs Attention,False
+C1346,41,10,67.44,2,4,3,9,At Risk,False
+C1347,43,10,68.52,2,4,3,9,At Risk,True
+C1348,21,14,106.53,4,5,5,14,Champions,False
+C1349,18,8,65.81,4,2,3,9,New / Promising,True
+C1350,126,10,82.21000000000001,1,4,4,9,At Risk,True
+C1351,63,4,38.43,2,1,1,4,Lost / Hibernating,False
+C1352,31,12,93.03,3,5,5,13,Needs Attention,True
+C1353,137,10,46.77,1,4,2,7,At Risk,True
+C1354,45,9,86.15,2,3,4,9,Needs Attention,False
+C1355,3,5,59.64,5,1,2,8,New / Promising,True
+C1356,44,13,105.21000000000001,2,5,5,12,At Risk,False
+C1357,25,7,39.8,3,2,1,6,Needs Attention,True
+C1358,104,3,23.32,1,1,1,3,Lost / Hibernating,False
+C1359,42,6,36.75,2,1,1,4,Lost / Hibernating,False
+C1360,60,13,108.68,2,5,5,12,At Risk,False
+C1361,18,10,84.35,4,4,4,12,Champions,False
+C1362,13,14,106.5,4,5,5,14,Champions,False
+C1363,56,13,120.98,2,5,5,12,At Risk,False
+C1364,23,12,74.65,4,5,4,13,Champions,True
+C1365,11,10,80.02,4,4,4,12,Champions,True
+C1366,77,12,87.54,1,5,4,10,At Risk,False
+C1367,35,8,66.55,3,2,3,8,Needs Attention,False
+C1368,88,12,65.51,1,5,3,9,At Risk,True
+C1369,160,15,96.48,1,5,5,11,At Risk,False
+C1370,23,8,83.95,4,2,4,10,New / Promising,False
+C1371,8,9,63.84,5,3,3,11,Loyal Customers,False
+C1372,21,8,53.88,4,2,2,8,New / Promising,False
+C1373,9,10,73.48,5,4,3,12,Loyal Customers,False
+C1374,44,9,50.18,2,3,2,7,Needs Attention,False
+C1375,1,17,137.81,5,5,5,15,Champions,True
+C1376,15,10,66.98,4,4,3,11,Loyal Customers,False
+C1377,31,9,64.57000000000001,3,3,3,9,Needs Attention,True
+C1378,4,6,37.45,5,1,1,7,New / Promising,False
+C1379,11,14,126.28,4,5,5,14,Champions,True
+C1380,80,6,34.93,1,1,1,3,Lost / Hibernating,False
+C1381,47,4,29.41,2,1,1,4,Lost / Hibernating,False
+C1382,27,13,73.03,3,5,3,11,Needs Attention,False
+C1383,2,8,70.0,5,2,3,10,New / Promising,False
+C1384,23,9,58.39,4,3,2,9,Loyal Customers,True
+C1385,7,7,45.26,5,2,2,9,New / Promising,False
+C1386,141,2,15.57,1,1,1,3,Lost / Hibernating,True
+C1387,30,7,49.73,3,2,2,7,Needs Attention,True
+C1388,29,10,94.94,3,4,5,12,Needs Attention,False
+C1389,39,7,61.85,3,2,3,8,Needs Attention,True
+C1390,21,15,86.44,4,5,4,13,Champions,True
+C1391,14,7,35.85,4,2,1,7,New / Promising,False
+C1392,8,12,110.85,5,5,5,15,Champions,False
+C1393,27,4,26.05,3,1,1,5,Needs Attention,False
+C1394,11,20,164.63,4,5,5,14,Champions,True
+C1395,42,9,55.38,2,3,2,7,Needs Attention,True
+C1396,44,12,96.22,2,5,5,12,At Risk,True
+C1397,5,11,62.629999999999995,5,4,3,12,Loyal Customers,False
+C1398,33,9,63.519999999999996,3,3,3,9,Needs Attention,False
+C1399,78,9,68.28,1,3,3,7,Needs Attention,True
+C1400,33,13,88.24,3,5,4,12,Needs Attention,False
+C1401,49,8,60.3,2,2,2,6,Lost / Hibernating,True
+C1402,23,10,74.80000000000001,4,4,4,12,Champions,True
+C1403,15,13,85.08,4,5,4,13,Champions,True
+C1404,71,7,48.57,1,2,2,5,Lost / Hibernating,True
+C1405,18,9,55.76,4,3,2,9,Loyal Customers,False
+C1406,89,12,95.29,1,5,5,11,At Risk,False
+C1407,182,5,44.21,1,1,1,3,Lost / Hibernating,True
+C1408,75,12,86.27,1,5,4,10,At Risk,False
+C1409,62,9,95.15,2,3,5,10,Needs Attention,False
+C1410,16,10,77.35000000000001,4,4,4,12,Champions,False
+C1411,4,10,80.35,5,4,4,13,Champions,False
+C1412,8,11,68.08,5,4,3,12,Loyal Customers,True
+C1413,26,10,50.59,3,4,2,9,Needs Attention,False
+C1414,17,8,54.07,4,2,2,8,New / Promising,True
+C1415,10,10,71.01,4,4,3,11,Loyal Customers,False
+C1416,27,10,52.7,3,4,2,9,Needs Attention,True
+C1417,35,9,61.36,3,3,3,9,Needs Attention,False
+C1418,120,5,38.349999999999994,1,1,1,3,Lost / Hibernating,True
+C1419,56,15,79.18,2,5,4,11,At Risk,True
+C1420,96,10,69.62,1,4,3,8,At Risk,False
+C1421,79,9,51.91,1,3,2,6,Needs Attention,False
+C1422,23,13,93.96,4,5,5,14,Champions,False
+C1423,56,10,89.48,2,4,5,11,At Risk,False
+C1424,14,13,90.16,4,5,5,14,Champions,False
+C1425,25,6,32.37,3,1,1,5,Needs Attention,True
+C1426,10,8,62.06,4,2,3,9,New / Promising,False
+C1427,42,11,76.31,2,4,4,10,At Risk,False
+C1428,3,11,50.58,5,4,2,11,Loyal Customers,False
+C1429,46,7,62.71,2,2,3,7,Lost / Hibernating,True
+C1430,13,8,74.39,4,2,4,10,New / Promising,True
+C1431,49,13,94.59,2,5,5,12,At Risk,False
+C1432,95,6,36.3,1,1,1,3,Lost / Hibernating,False
+C1433,20,10,65.79,4,4,3,11,Loyal Customers,False
+C1434,33,9,68.58,3,3,3,9,Needs Attention,False
+C1435,36,8,78.49,3,2,4,9,Needs Attention,False
+C1436,25,6,30.74,3,1,1,5,Needs Attention,False
+C1437,18,3,19.18,4,1,1,6,New / Promising,False
+C1438,13,17,104.99,4,5,5,14,Champions,False
+C1439,84,9,76.92,1,3,4,8,Needs Attention,False
+C1440,2,13,88.33,5,5,4,14,Champions,True
+C1441,36,6,48.35,3,1,2,6,Needs Attention,False
+C1442,8,11,101.53999999999999,5,4,5,14,Champions,True
+C1443,90,8,52.91,1,2,2,5,Lost / Hibernating,True
+C1444,34,11,88.56,3,4,4,11,Needs Attention,False
+C1445,4,8,59.53,5,2,2,9,New / Promising,True
+C1446,53,9,69.07000000000001,2,3,3,8,Needs Attention,True
+C1447,9,8,69.13,5,2,3,10,New / Promising,False
+C1448,3,12,83.3,5,5,4,14,Champions,False
+C1449,6,13,88.83,5,5,5,15,Champions,True
+C1450,26,7,66.75999999999999,3,2,3,8,Needs Attention,True
+C1451,91,4,28.310000000000002,1,1,1,3,Lost / Hibernating,True
+C1452,80,6,55.269999999999996,1,1,2,4,Lost / Hibernating,False
+C1453,44,7,47.27,2,2,2,6,Lost / Hibernating,False
+C1454,3,13,80.83,5,5,4,14,Champions,True
+C1455,10,17,126.60000000000001,4,5,5,14,Champions,False
+C1456,31,8,50.65,3,2,2,7,Needs Attention,True
+C1457,112,10,60.5,1,4,3,8,At Risk,True
+C1458,75,6,52.55,1,1,2,4,Lost / Hibernating,False
+C1459,145,6,45.269999999999996,1,1,2,4,Lost / Hibernating,True
+C1460,23,8,55.16,4,2,2,8,New / Promising,True
+C1461,26,12,71.52,3,5,3,11,Needs Attention,False
+C1462,5,7,49.67,5,2,2,9,New / Promising,False
+C1463,20,14,131.9,4,5,5,14,Champions,False
+C1464,6,10,79.47,5,4,4,13,Champions,False
+C1465,8,12,87.16,5,5,4,14,Champions,True
+C1466,5,11,85.11,5,4,4,13,Champions,True
+C1467,83,9,65.58,1,3,3,7,Needs Attention,False
+C1468,2,12,76.45,5,5,4,14,Champions,True
+C1469,45,7,50.089999999999996,2,2,2,6,Lost / Hibernating,False
+C1470,41,16,115.06,2,5,5,12,At Risk,False
+C1471,93,11,82.76,1,4,4,9,At Risk,True
+C1472,120,6,45.4,1,1,2,4,Lost / Hibernating,False
+C1473,142,6,32.69,1,1,1,3,Lost / Hibernating,True
+C1474,8,8,51.480000000000004,5,2,2,9,New / Promising,False
+C1475,24,9,81.39,3,3,4,10,Needs Attention,False
+C1476,56,7,45.03,2,2,1,5,Lost / Hibernating,False
+C1477,9,8,56.05,4,2,2,8,New / Promising,False
+C1478,33,7,42.56,3,2,1,6,Needs Attention,False
+C1479,23,9,59.14,3,3,2,8,Needs Attention,False
+C1480,66,11,74.58,2,4,4,10,At Risk,False
+C1481,45,13,108.55,2,5,5,12,At Risk,False
+C1482,177,4,28.84,1,1,1,3,Lost / Hibernating,True
+C1483,66,13,87.93,2,5,4,11,At Risk,False
+C1484,74,3,14.979999999999999,1,1,1,3,Lost / Hibernating,False
+C1485,17,7,63.2,4,2,3,9,New / Promising,True
+C1486,5,10,86.75,5,4,4,13,Champions,False
+C1487,58,7,70.23,2,2,3,7,Lost / Hibernating,False
+C1488,4,10,73.41,5,4,3,12,Loyal Customers,True
+C1489,32,11,84.66,3,4,4,11,Needs Attention,False
+C1490,11,10,92.41,4,4,5,13,Champions,True
+C1491,1,11,94.2,5,4,5,14,Champions,False
+C1492,36,14,84.75,3,5,4,12,Needs Attention,False
+C1493,12,9,80.62,4,3,4,11,Loyal Customers,False
+C1494,13,9,46.63,4,3,2,9,Loyal Customers,True
+C1495,2,7,72.16,5,2,3,10,New / Promising,True
+C1496,8,15,115.5,5,5,5,15,Champions,False
+C1497,113,6,36.65,1,1,1,3,Lost / Hibernating,False
+C1498,1,9,74.32000000000001,5,3,4,12,Loyal Customers,False
+C1499,22,18,101.48,4,5,5,14,Champions,False
+C1500,43,9,64.92,2,3,3,8,Needs Attention,True
+C1501,164,9,54.42,1,3,2,6,Needs Attention,False
+C1502,11,10,108.96,4,4,5,13,Champions,True
+C1503,77,4,22.22,1,1,1,3,Lost / Hibernating,True
+C1504,53,6,42.89,2,1,1,4,Lost / Hibernating,False
+C1505,15,10,74.97,4,4,4,12,Champions,True
+C1506,5,8,45.68,5,2,2,9,New / Promising,True
+C1507,19,7,48.83,4,2,2,8,New / Promising,True
+C1508,33,10,68.34,3,4,3,10,Needs Attention,False
+C1509,4,8,55.07,5,2,2,9,New / Promising,False
+C1510,63,11,71.7,2,4,3,9,At Risk,True
+C1511,31,10,89.41,3,4,5,12,Needs Attention,False
+C1512,24,8,58.37,3,2,2,7,Needs Attention,False
+C1513,12,11,69.22,4,4,3,11,Loyal Customers,True
+C1514,18,8,49.24,4,2,2,8,New / Promising,True
+C1515,69,7,49.32,1,2,2,5,Lost / Hibernating,False
+C1516,104,4,19.330000000000002,1,1,1,3,Lost / Hibernating,False
+C1517,64,12,76.69,2,5,4,11,At Risk,False
+C1518,1,17,124.26,5,5,5,15,Champions,False
+C1519,30,7,42.56,3,2,1,6,Needs Attention,True
+C1520,90,4,19.19,1,1,1,3,Lost / Hibernating,True
+C1521,40,8,50.82,2,3,2,7,Needs Attention,False
+C1522,12,11,75.1,4,4,4,12,Champions,True
+C1523,19,8,63.89,4,3,3,10,Loyal Customers,False
+C1524,98,10,75.33,1,4,4,9,At Risk,False
+C1525,25,10,79.08,3,4,4,11,Needs Attention,False
+C1526,28,9,71.67,3,3,3,9,Needs Attention,False
+C1527,20,9,61.32,4,3,3,10,Loyal Customers,True
+C1528,58,5,39.44,2,1,1,4,Lost / Hibernating,True
+C1529,19,12,105.45,4,5,5,14,Champions,True
+C1530,28,4,31.85,3,1,1,5,Needs Attention,False
+C1531,28,7,66.92,3,2,3,8,Needs Attention,True
+C1532,40,5,33.14,2,1,1,4,Lost / Hibernating,True
+C1533,22,12,98.28999999999999,4,5,5,14,Champions,True
+C1534,26,12,59.57,3,5,2,10,Needs Attention,True
+C1535,19,10,62.07,4,4,3,11,Loyal Customers,False
+C1536,20,15,126.51,4,5,5,14,Champions,True
+C1537,20,13,82.74000000000001,4,5,4,13,Champions,False
+C1538,4,10,113.43,5,4,5,14,Champions,True
+C1539,19,7,63.91,4,2,3,9,New / Promising,False
+C1540,1,9,92.46,5,3,5,13,Loyal Customers,False
+C1541,1,8,59.61,5,3,2,10,Loyal Customers,True
+C1542,82,9,57.57,1,3,2,6,Needs Attention,False
+C1543,19,14,109.23,4,5,5,14,Champions,False
+C1544,42,8,56.16,2,3,2,7,Needs Attention,False
+C1545,11,15,103.81,4,5,5,14,Champions,True
+C1546,8,9,60.41,5,3,2,10,Loyal Customers,True
+C1547,166,6,45.03,1,1,1,3,Lost / Hibernating,False
+C1548,31,8,50.07,3,3,2,8,Needs Attention,True
+C1549,40,11,97.16,2,4,5,11,At Risk,False
+C1550,67,9,66.36,1,3,3,7,Needs Attention,False
+C1551,159,5,39.61,1,1,1,3,Lost / Hibernating,False
+C1552,28,11,93.96000000000001,3,4,5,12,Needs Attention,False
+C1553,5,8,71.34,5,3,3,11,Loyal Customers,False
+C1554,33,5,36.6,3,1,1,5,Needs Attention,True
+C1555,18,9,59.39,4,3,2,9,Loyal Customers,True
+C1556,64,9,64.28999999999999,2,3,3,8,Needs Attention,False
+C1557,54,10,68.65,2,4,3,9,At Risk,False
+C1558,116,6,44.09,1,1,1,3,Lost / Hibernating,True
+C1559,21,9,63.59,4,3,3,10,Loyal Customers,True
+C1560,34,11,87.95,3,4,4,11,Needs Attention,False
+C1561,5,11,88.18,5,4,4,13,Champions,False
+C1562,32,9,58.17,3,3,2,8,Needs Attention,False
+C1563,54,2,21.619999999999997,2,1,1,4,Lost / Hibernating,True
+C1564,39,9,75.89,3,3,4,10,Needs Attention,True
+C1565,4,12,78.0,5,5,4,14,Champions,False
+C1566,54,9,83.85,2,3,4,9,Needs Attention,True
+C1567,77,11,74.95,1,4,4,9,At Risk,False
+C1568,20,16,133.15,4,5,5,14,Champions,False
+C1569,14,14,109.01,4,5,5,14,Champions,True
+C1570,35,5,35.56,3,1,1,5,Needs Attention,True
+C1571,39,14,98.39,3,5,5,13,Needs Attention,True
+C1572,36,9,60.9,3,3,3,9,Needs Attention,False
+C1573,43,12,74.86,2,5,4,11,At Risk,False
+C1574,50,14,80.44,2,5,4,11,At Risk,True
+C1575,19,12,86.19,4,5,4,13,Champions,False
+C1576,3,5,32.44,5,1,1,7,New / Promising,False
+C1577,55,6,70.53,2,1,3,6,Lost / Hibernating,False
+C1578,9,7,42.05,4,2,1,7,New / Promising,False
+C1579,117,8,53.71,1,3,2,6,Needs Attention,True
+C1580,30,8,56.78,3,3,2,8,Needs Attention,True
+C1581,13,5,38.16,4,1,1,6,New / Promising,False
+C1582,43,10,87.08,2,4,4,10,At Risk,True
+C1583,71,6,38.75,1,2,1,4,Lost / Hibernating,False
+C1584,34,9,50.07,3,3,2,8,Needs Attention,True
+C1585,7,13,100.57,5,5,5,15,Champions,True
+C1586,82,4,28.689999999999998,1,1,1,3,Lost / Hibernating,True
+C1587,27,14,99.88,3,5,5,13,Needs Attention,False
+C1588,50,8,58.12,2,3,2,7,Needs Attention,True
+C1589,55,8,57.01,2,3,2,7,Needs Attention,True
+C1590,16,14,101.2,4,5,5,14,Champions,False
+C1591,25,8,84.33,3,3,4,10,Needs Attention,True
+C1592,37,8,36.6,3,3,1,7,Needs Attention,True
+C1593,4,11,85.46000000000001,5,4,4,13,Champions,True
+C1594,52,9,52.67,2,3,2,7,Needs Attention,True
+C1595,63,7,63.49,2,2,3,7,Lost / Hibernating,True
+C1596,18,7,74.44,4,2,4,10,New / Promising,False
+C1597,23,10,110.41,3,4,5,12,Needs Attention,True
+C1598,39,11,99.42,3,4,5,12,Needs Attention,False
+C1599,123,4,20.669999999999998,1,1,1,3,Lost / Hibernating,False
+C1600,7,12,66.77,5,5,3,13,Loyal Customers,True
+C1601,117,12,92.53,1,5,5,11,At Risk,True
+C1602,7,11,79.05,5,4,4,13,Champions,True
+C1603,52,6,32.64,2,2,1,5,Lost / Hibernating,False
+C1604,17,16,84.54,4,5,4,13,Champions,True
+C1605,62,6,54.3,2,2,2,6,Lost / Hibernating,False
+C1606,23,10,72.58,3,4,3,10,Needs Attention,False
+C1607,46,12,81.19,2,5,4,11,At Risk,False
+C1608,96,8,43.95,1,3,1,5,Needs Attention,False
+C1609,14,8,45.17,4,3,1,8,Loyal Customers,False
+C1610,1,8,60.79,5,3,3,11,Loyal Customers,True
+C1611,21,10,95.5,4,4,5,13,Champions,True
+C1612,50,6,48.25,2,2,2,6,Lost / Hibernating,True
+C1613,55,6,39.6,2,2,1,5,Lost / Hibernating,False
+C1614,58,7,40.76,2,2,1,5,Lost / Hibernating,False
+C1615,19,5,39.06,4,1,1,6,New / Promising,False
+C1616,28,9,52.8,3,3,2,8,Needs Attention,True
+C1617,65,8,60.19,2,3,2,7,Needs Attention,False
+C1618,29,21,163.8,3,5,5,13,Needs Attention,False
+C1619,28,11,90.91,3,4,5,12,Needs Attention,False
+C1620,41,9,63.51,2,3,3,8,Needs Attention,False
+C1621,4,11,81.09,5,4,4,13,Champions,True
+C1622,18,9,61.43,4,3,3,10,Loyal Customers,True
+C1623,23,13,100.43,3,5,5,13,Needs Attention,False
+C1624,32,7,52.62,3,2,2,7,Needs Attention,True
+C1625,14,12,76.13,4,5,4,13,Champions,True
+C1626,107,9,88.05,1,3,4,8,Needs Attention,True
+C1627,26,16,117.02,3,5,5,13,Needs Attention,True
+C1628,3,3,31.01,5,1,1,7,New / Promising,False
+C1629,24,9,67.97,3,3,3,9,Needs Attention,False
+C1630,23,10,70.85,3,4,3,10,Needs Attention,True
+C1631,55,5,38.04,2,1,1,4,Lost / Hibernating,True
+C1632,4,7,43.64,5,2,1,8,New / Promising,False
+C1633,13,12,87.22,4,5,4,13,Champions,False
+C1634,26,9,65.95,3,3,3,9,Needs Attention,False
+C1635,76,5,23.89,1,1,1,3,Lost / Hibernating,False
+C1636,95,9,61.24,1,3,3,7,Needs Attention,True
+C1637,31,8,60.84,3,3,3,9,Needs Attention,True
+C1638,8,9,74.55,5,3,4,12,Loyal Customers,False
+C1639,5,5,46.55,5,1,2,8,New / Promising,False
+C1640,25,8,63.38,3,3,3,9,Needs Attention,False
+C1641,77,12,73.79,1,5,3,9,At Risk,False
+C1642,43,16,126.51,2,5,5,12,At Risk,False
+C1643,64,16,129.58,2,5,5,12,At Risk,True
+C1644,54,7,48.59,2,2,2,6,Lost / Hibernating,True
+C1645,93,12,88.23,1,5,4,10,At Risk,True
+C1646,2,9,65.38,5,3,3,11,Loyal Customers,True
+C1647,25,8,43.089999999999996,3,3,1,7,Needs Attention,True
+C1648,15,12,115.01,4,5,5,14,Champions,False
+C1649,53,14,107.92999999999999,2,5,5,12,At Risk,True
