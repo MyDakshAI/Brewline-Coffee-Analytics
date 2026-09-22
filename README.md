@@ -1,10 +1,10 @@
 # Brewline Coffee Co.: Sales & Customer Analytics
 
-**A complete data analytics portfolio project**: Python (cleaning + EDA) → SQL (business analysis) → interactive dashboard → written findings, built the same way as the reference project, but with an original synthetic dataset so it's genuinely yours to put on GitHub/LinkedIn.
+A data analytics portfolio project built the way the reference project was structured: Python for cleaning and EDA, SQL for business questions, a dashboard for visualization, and written findings at the end. The dataset is original and synthetic, so this one's actually mine to put on GitHub and LinkedIn.
 
 ## The scenario
 
-Brewline Coffee Co. runs 3 stores (Downtown, Riverside, University Ave) and has a year of transaction data (2025) plus a customer table with loyalty status, age, and gender. Leadership wants to know: which stores/products/customer segments drive revenue, and where's the opportunity?
+Brewline Coffee Co. runs 3 stores (Downtown, Riverside, University Ave) and has a year of transaction data (2025) plus a customer table with loyalty status, age, and gender. Leadership wants to know which stores, products, and customer segments drive revenue, and where the opportunity is.
 
 ## Project structure
 
@@ -34,51 +34,54 @@ outputs/
 ## The 6 steps
 
 1. **Data Preparation, Modeling & EDA (Python)**: `notebook/Brewline_Sales_Analysis.ipynb`
-   Load the raw CSVs, find and fix data quality issues (missing values, duplicate rows,
-   inconsistent text casing, invalid quantities), engineer new fields (`age_group`,
-   `total_amount`, `month`, `day_of_week`), and explore revenue patterns visually. A later
-   section adds an **RFM segmentation** (Recency, Frequency, Monetary) that scores every
-   customer individually and buckets them into segments like Champions, At Risk, and Lost.
+   Loads the raw CSVs, fixes the data quality issues (missing values, duplicate rows,
+   inconsistent text casing, bad quantities), builds a few new fields (`age_group`,
+   `total_amount`, `month`, `day_of_week`), and pokes around at revenue, customer, and
+   product patterns. A later section adds RFM segmentation (Recency, Frequency,
+   Monetary), scoring every customer and sorting them into groups like Champions,
+   At Risk, and Lost.
 
 2. **Data Analysis (SQL)**: `sql/analysis_queries.sql`
-   10 queries against a SQLite database built from the cleaned tables: monthly revenue
-   trend, top items, revenue by store, loyalty segmentation, revenue by age group,
-   repeat-customer identification, day-of-week patterns, payment method mix, satisfaction
-   by category, and a window-function query ranking each store's monthly revenue.
+   Ten queries against a SQLite database built from the cleaned tables: monthly
+   revenue trend, top items, revenue by store, loyalty segmentation, revenue by age
+   group, repeat-customer identification, day-of-week patterns, payment method mix,
+   satisfaction by category, and a window-function query ranking each store's monthly
+   revenue.
 
 3. **Visualization & Insights (Dashboard)**
-   An interactive dashboard, live at:
+   Live at:
    **https://claude.ai/artifact/VMQpvsugYihZDhDn9rwNNd**
-   Filter by store to see how revenue, top items, and customer mix shift across locations.
-   A Power BI version mirrors it 1:1, plus an extra **Loyalty & Frequency** page (see below).
+   Filter by store to see how revenue, top items, and customer mix shift across
+   locations. There's also a Power BI version that mirrors it, plus an extra
+   Loyalty & Frequency page (more on that below).
 
-4. **Report**: key findings summarized below.
+4. **Report**: findings below.
 
-5. **Publish**: push this folder to GitHub, pin it on your profile, write a LinkedIn post
-   walking through one interesting finding (see "Suggested LinkedIn angle" below).
+5. **Publish**: push this folder to GitHub, pin it on your profile, write a LinkedIn
+   post about one of the findings (see the suggested angle below).
 
-6. **Iterate**: see "Ideas to extend this" at the bottom if you want to go further.
+6. **Iterate**: see "Ideas to extend this" if you want to keep going.
 
 ## Key findings
 
-- **Downtown is the top store** by revenue (~$18.4K), roughly 33% ahead of University Ave, the lowest performer.
-- **Espresso Drinks dominate**: 40% of all revenue, more than double the next category (Food).
-- **Customers 55+ generate the most revenue** of any age group, despite not being the largest segment, worth a follow-up: is this driven by higher order frequency or bigger baskets?
-- **Loyalty membership barely moves either metric that matters.** Average order value is essentially flat (members: $7.34 vs. non-members: $7.44), and the frequency gap that might have explained the program is small too: members average **9.30 orders/customer** over the year vs. **9.16** for non-members, about a 1.5% difference. Neither basket size nor visit frequency shows a meaningful lift from membership in this data.
-- **Monday is the busiest day**: useful for staffing decisions.
-- **Card and Mobile Pay make up ~78% of transactions**: cash is a shrinking share.
-- **RFM segmentation shows 31.7% of customers (206 of 650) are At Risk or Lost/Hibernating**: customers who used to order regularly (or spent a lot) but haven't been back recently. That's a concrete, targetable group for a win-back campaign.
-- **The top 17.2% of customers (Champions) generate 24.8% of total revenue**: a clear number for "protect your best customers first" if retention budget is limited.
-- **Loyalty membership does skew toward the healthy RFM segments, just mildly:** 51% of Champions and 49% of Loyal Customers are loyalty members, vs. 42% of At Risk and only 38% of Lost/Hibernating customers (baseline membership rate is 44.8%). The aggregate AOV/frequency comparison above made it look like the program does nothing. Segmenting individual customers reveals a small but real association that group averages washed out.
+- Downtown is the top store by revenue (~$18.4K), about 33% ahead of University Ave, the weakest of the three.
+- Espresso Drinks are the biggest category by far: 40% of all revenue, more than double Food, the next closest.
+- Customers 55+ bring in the most revenue of any age group, even though they're not the biggest group by headcount. Worth digging into whether that's frequency or bigger orders.
+- Loyalty membership barely changes anything on the surface. Average order value is basically the same for members and non-members ($7.34 vs. $7.44), and the frequency gap that might've explained the program turned out small too: members order 9.30 times a year on average vs. 9.16 for non-members, about 1.5% more. Neither basket size nor visit frequency shows a real lift from being a member.
+- Monday is the busiest day, which matters for staffing.
+- Card and Mobile Pay cover about 78% of transactions; cash is fading out.
+- Running RFM on the customer base, 31.7% of customers (206 of 650) come back as At Risk or Lost/Hibernating: people who used to order a lot, or spent a lot, but haven't shown up in a while. That's a specific group a win-back campaign could actually target.
+- The top 17.2% of customers, the Champions segment, account for almost a quarter of total revenue (24.8%). Useful number if you're trying to argue for protecting your best customers first.
+- Loyalty membership does correlate with the healthier RFM segments, just not by a lot: 51% of Champions and 49% of Loyal Customers are members, compared to 42% of At Risk and 38% of Lost/Hibernating (the overall membership rate is 44.8%). So the plain average comparison above made the program look useless, but once you look at individual customers instead of group averages, there's a real, if modest, relationship hiding underneath.
 
 ## Suggested LinkedIn angle
 
-Two options, both from following the loyalty question past the first plausible answer:
+A couple of ways to frame this, both built off pushing the loyalty question past the first answer:
 
-1. **The averages-vs-individuals story.** *"I checked whether the loyalty program paid off through order size. It didn't. So I checked visit frequency instead, expecting that to be the real payoff, and it barely moved the needle either (9.30 orders/customer vs. 9.16). Comparing group averages made it look like the program does nothing. Then I ran a full RFM segmentation on every customer individually, and a real (if modest) pattern showed up: loyalty members are meaningfully more likely to land in the 'healthy' segments and less likely to be At Risk or Lost. The averages hid a signal that only showed up once I stopped averaging."*
-2. **The retention-targeting story.** *"Nearly a third of this coffee chain's customers (206 of 650) are At Risk or Lost by RFM standards, and the top 17% of customers already generate a quarter of all revenue. That's the kind of number that turns 'the loyalty program isn't working' into an actual to-do list: here's exactly who to win back, and here's exactly who to protect."*
+1. Averages hid it, individuals didn't. Something like: *"I checked whether the loyalty program paid off through order size. It didn't. I checked visit frequency next, expecting that to be where it actually paid off, and it barely moved either. Comparing group averages, the program looked like it wasn't doing anything. Then I ran a full RFM segmentation on every customer and found a real pattern: loyalty members skew toward the healthy segments and away from At Risk or Lost. The signal was there, averaging just buried it."*
+2. Lead with the business number. Something like: *"About a third of this coffee chain's customers, 206 out of 650, are At Risk or Lost by RFM standards, and the top 17% already generate a quarter of all revenue. That turns 'the loyalty program doesn't seem to be working' into an actual to-do list: here's who to win back, here's who to protect."*
 
-Either works as the portfolio hook; the first is more "I dug deeper than the obvious metric," the second is more "here's a business action, not just a finding."
+Either works. The first shows you dig past the obvious metric; the second reads more like an action item for leadership.
 
 ## How to reproduce
 
@@ -88,22 +91,22 @@ python3 notebook/clean_and_analyze.py              # run the cleaning + EDA pipe
 # then open notebook/Brewline_Sales_Analysis.ipynb in Jupyter to see it cell-by-cell
 ```
 
-To load into real SQL software instead of SQLite, `data/customers_clean.csv` and
-`data/orders_clean.csv` import directly into MySQL/PostgreSQL. The queries in
-`sql/analysis_queries.sql` use standard syntax that works in both with minor tweaks
-(e.g., `strftime` → `DATE_TRUNC` in Postgres).
+`data/customers_clean.csv` and `data/orders_clean.csv` load straight into MySQL or
+Postgres if you want real SQL software instead of SQLite. The queries in
+`sql/analysis_queries.sql` are standard enough to work in either with small tweaks
+(`strftime` becomes `DATE_TRUNC` in Postgres, for example).
 
-To load into **actual Power BI Desktop** instead of the web dashboard: import
-`data/full_clean.csv` directly, every chart in the dashboard maps to a straightforward
-Power BI visual (line chart for monthly revenue, donut for category mix, bar charts for
-the rest), with `store_location` as a slicer. The **Loyalty & Frequency** page adds three
-measures (`Distinct Customers`, `Orders per Customer`, and `Avg Order Value`) broken out
-by `loyalty_member`, as a table plus a clustered column chart.
+For actual Power BI Desktop instead of the web dashboard, import `data/full_clean.csv`
+directly. Every chart in the dashboard has a straightforward Power BI equivalent (line
+chart for monthly revenue, donut for category mix, bar charts for the rest), with
+`store_location` set up as a slicer. The Loyalty & Frequency page adds three measures,
+`Distinct Customers`, `Orders per Customer`, and `Avg Order Value`, broken out by
+`loyalty_member`, shown as a table plus a clustered column chart.
 
 ## Ideas to extend this
 
-- ~~Build an RFM segmentation to identify at-risk vs. VIP customers~~ (done, see `notebook/Brewline_Sales_Analysis.ipynb` Section 7 and `data/customer_segments.csv`).
-- Add a **customer cohort/retention analysis**: do customers who signed up early order more over time?
-- Add **basket analysis**: which items are commonly bought together?
-- Bring in **weather or local event data** to explain the monthly revenue dips/spikes.
-- Build an RFM segment breakdown into the dashboard/Power BI (revenue or customer count by segment).
+- ~~RFM segmentation to spot at-risk vs. VIP customers~~ (done, see `notebook/Brewline_Sales_Analysis.ipynb` Section 7 and `data/customer_segments.csv`).
+- A cohort/retention analysis: do customers who signed up earlier order more over time?
+- Basket analysis: which items tend to get bought together?
+- Bring in weather or local event data to explain the monthly revenue dips and spikes.
+- Fold the RFM segments into the dashboard or Power BI (revenue or customer count by segment).

@@ -1,320 +1,640 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brewline Coffee Co. — Sales Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #EFE6D8;
-    --panel: #F8F2E8;
-    --ink: #2C1B12;
-    --ink-soft: #6B5747;
-    --line: #DCCBB0;
-    --amber: #B9793B;
-    --sage: #5C7A5E;
-    --berry: #9C5B58;
-    --amber-soft: #EAD3B0;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #1C1410;
-      --panel: #251B15;
-      --ink: #F1E6D8;
-      --ink-soft: #B9A891;
-      --line: #3C2E23;
-      --amber: #D79A56;
-      --sage: #7FA282;
-      --berry: #C17E7B;
-      --amber-soft: #3A2A1A;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #1C1410; --panel: #251B15; --ink: #F1E6D8; --ink-soft: #B9A891;
-    --line: #3C2E23; --amber: #D79A56; --sage: #7FA282; --berry: #C17E7B; --amber-soft: #3A2A1A;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "IBM Plex Sans", -apple-system, sans-serif;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 20px 64px; }
+  :root{
+    color-scheme: dark;
+    --bg: #1C1410;
+    --bg-plane: #150F0B;
+    --surface: #241A12;
+    --surface-2: #2A1F16;
+    --border: rgba(247,239,226,0.10);
+    --border-strong: rgba(247,239,226,0.18);
+    --text-primary: #F7EFE2;
+    --text-secondary: #D9C7A3;
+    --text-muted: #A98F68;
+    --accent: #C9A66B;
 
-  .top {
+    --s-blue: #3987e5;
+    --s-orange: #d95926;
+    --s-aqua: #199e70;
+    --s-amber: #c98500;
+    --s-magenta: #d55181;
+    --s-green: #008300;
+  }
+
+  *{ box-sizing: border-box; }
+  body{ background: var(--bg); color: var(--text-primary); }
+
+  #app{
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    padding-inline: 20px;
+    padding-block: 28px 60px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  h1,h2,h3, .num{ font-family: "Fraunces", Georgia, serif; }
+
+  a{ color: var(--accent); }
+
+  /* ---------- header ---------- */
+  .hero{
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-  .brand {
-    font-family: "Fraunces", serif;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .brand span { color: var(--amber); }
-  .subhead { color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
-
-  select {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: var(--panel);
-    color: var(--ink);
-  }
-
-  .hero {
-    position: relative;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 36px 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
     margin-bottom: 24px;
-    overflow: hidden;
   }
-  .ring {
-    position: absolute;
-    right: -40px;
-    top: -40px;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    border: 22px solid var(--amber-soft);
-    opacity: 0.6;
+  .brandmark{
+    display:flex;
+    align-items:center;
+    gap:12px;
   }
-  .hero-label { color: var(--ink-soft); font-size: 14px; margin-bottom: 6px; }
-  .hero-number {
-    font-family: "Fraunces", serif;
-    font-size: 56px;
-    font-weight: 500;
-    line-height: 1;
-    position: relative;
+  .brandmark .mark{
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(155deg, var(--s-amber), #7a5a2a 70%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Fraunces", serif; font-weight:700; font-size: 20px; color: #1C1410;
+    flex: none;
   }
-  .hero-sub { color: var(--ink-soft); font-size: 14px; margin-top: 8px; max-width: 46ch; }
+  .hero h1{ font-size: clamp(24px, 4vw, 32px); font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+  .hero .sub{ color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+  .hero-links{ display:flex; gap: 14px; font-size: 13px; color: var(--text-muted); }
+  .hero-links a{ text-decoration: none; border-bottom: 1px solid transparent; }
+  .hero-links a:hover{ border-color: var(--accent); }
 
-  .kpi-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-bottom: 28px;
+  /* ---------- filter pills ---------- */
+  .filters{
+    display:flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
   }
-  @media (max-width: 640px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
-  .kpi {
-    background: var(--panel);
-    border: 1px solid var(--line);
+  .pill{
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .pill:hover{ border-color: var(--border-strong); color: var(--text-primary); }
+  .pill.active{
+    background: var(--s-amber);
+    border-color: var(--s-amber);
+    color: #1C1410;
+    font-weight: 600;
+  }
+
+  /* ---------- section shell ---------- */
+  section{ margin-bottom: 32px; }
+  .section-head{ margin-bottom: 14px; }
+  .section-head h2{ font-size: 19px; font-weight: 600; margin: 0 0 4px; }
+  .section-head p{ font-size: 13.5px; color: var(--text-muted); margin: 0; max-width: 64ch; }
+
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+
+  /* ---------- KPI grid ---------- */
+  .kpi-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .kpi{
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 16px 18px;
   }
-  .kpi-value {
-    font-family: "Fraunces", serif;
-    font-size: 26px;
-    font-weight: 500;
-  }
-  .kpi-label { color: var(--ink-soft); font-size: 13px; margin-top: 4px; }
+  .kpi .label{ font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); font-weight: 600; }
+  .kpi .num{ font-size: clamp(22px, 3vw, 28px); font-weight: 600; margin-top: 6px; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .kpi .foot{ font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 18px;
-    margin-bottom: 18px;
-  }
-  .grid.thirds { grid-template-columns: 1fr 1fr; }
-  @media (max-width: 760px) {
-    .grid, .grid.thirds { grid-template-columns: 1fr; }
+  /* ---------- trend chart ---------- */
+  .trend-wrap{ position: relative; }
+  svg text{ font-family: "Public Sans", sans-serif; }
+  .axis-label{ fill: var(--text-muted); font-size: 10.5px; }
+  .grid-line{ stroke: var(--border); stroke-width: 1; }
+
+  /* ---------- two column layout ---------- */
+  .grid-2{
+    display:grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 16px;
+    align-items: stretch;
   }
 
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 20px 20px 12px;
-  }
-  .panel h3 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: 17px;
-    margin: 0 0 12px;
-  }
-  .chart-wrap { position: relative; height: 240px; }
+  /* ---------- donut + legend ---------- */
+  .donut-row{ display:flex; gap: 22px; align-items:center; flex-wrap: wrap; }
+  .legend{ display:flex; flex-direction: column; gap: 9px; font-size: 13px; flex: 1; min-width: 180px; }
+  .legend-item{ display:flex; align-items:center; gap: 9px; cursor: default; }
+  .swatch{ width: 11px; height: 11px; border-radius: 3px; flex: none; }
+  .legend-item .lbl{ color: var(--text-secondary); flex: 1; }
+  .legend-item .val{ color: var(--text-primary); font-weight: 600; font-variant-numeric: tabular-nums; }
 
-  footer {
-    text-align: center;
-    color: var(--ink-soft);
-    font-size: 12px;
-    margin-top: 20px;
+  /* ---------- bars ---------- */
+  .barlist{ display:flex; flex-direction:column; gap: 12px; }
+  .bar-row{ display:grid; grid-template-columns: 110px 1fr 78px; align-items:center; gap: 10px; font-size: 13px; }
+  .bar-row .name{ color: var(--text-secondary); }
+  .bar-track{ background: var(--surface-2); border-radius: 6px; height: 20px; overflow: hidden; position: relative; }
+  .bar-fill{ height: 100%; border-radius: 6px; transition: width .5s ease; }
+  .bar-row .val{ text-align: right; font-variant-numeric: tabular-nums; color: var(--text-primary); font-weight: 600; }
+
+  /* ---------- tooltip ---------- */
+  #tooltip{
+    position: fixed;
+    pointer-events: none;
+    background: #2E2115;
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    font-size: 12.5px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    opacity: 0;
+    transform: translate(-50%, -110%);
+    transition: opacity .1s;
+    z-index: 50;
+    white-space: nowrap;
+  }
+  #tooltip.show{ opacity: 1; }
+  #tooltip .t-label{ color: var(--text-secondary); margin-right: 6px; }
+  #tooltip .t-val{ font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ---------- RFM section ---------- */
+  .rfm-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-pair{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .stat-mini{ background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .stat-mini .k{ font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); font-weight: 600; }
+  .stat-mini .v{ font-family:"Fraunces", serif; font-size: 19px; font-weight: 600; margin-top: 4px; }
+  .stat-mini .d{ font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+  .table-toggle{
+    background: none; border: none; color: var(--accent); font-size: 12.5px;
+    cursor: pointer; padding: 0; font-family: inherit; margin-top: 12px;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  table{ width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  table th, table td{ text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); }
+  table th{ color: var(--text-muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; }
+  table td{ color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  table td:first-child{ color: var(--text-primary); }
+  .table-wrap{ overflow-x: auto; }
+  [hidden]{ display: none !important; }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display:flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between;
+  }
+  footer .links{ display:flex; gap: 16px; flex-wrap: wrap; }
+  footer a{ text-decoration: none; }
+  footer a:hover{ text-decoration: underline; }
+
+  @media (max-width: 720px){
+    .kpi-grid{ grid-template-columns: repeat(2, 1fr); }
+    .grid-2, .rfm-grid{ grid-template-columns: 1fr; }
+    .bar-row{ grid-template-columns: 84px 1fr 64px; }
   }
 </style>
+
 </head>
 <body>
-<div class="wrap">
-
-  <div class="top">
-    <div>
-      <div class="brand">Brewline <span>Coffee Co.</span></div>
-      <div class="subhead">2025 Sales &amp; Customer Performance</div>
-    </div>
-    <div>
-      <label for="storeFilter" style="font-size:13px; color:var(--ink-soft); margin-right:8px;">Store</label>
-      <select id="storeFilter"></select>
-    </div>
-  </div>
+<div id="app">
 
   <div class="hero">
-    <div class="ring"></div>
-    <div class="hero-label">Total revenue, 2025</div>
-    <div class="hero-number" id="heroRevenue">$0</div>
-    <div class="hero-sub">Across 3 stores, from January through December. Filter by store above to see how each location contributed.</div>
-  </div>
-
-  <div class="kpi-row">
-    <div class="kpi"><div class="kpi-value" id="kpiOrders">–</div><div class="kpi-label">Orders</div></div>
-    <div class="kpi"><div class="kpi-value" id="kpiCustomers">–</div><div class="kpi-label">Unique customers</div></div>
-    <div class="kpi"><div class="kpi-value" id="kpiAOV">–</div><div class="kpi-label">Avg. order value</div></div>
-    <div class="kpi"><div class="kpi-value" id="kpiLoyalty">–</div><div class="kpi-label">Loyalty member share</div></div>
-  </div>
-
-  <div class="grid">
-    <div class="panel">
-      <h3>Monthly revenue</h3>
-      <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+    <div class="brandmark">
+      <div class="mark">B</div>
+      <div>
+        <h1>Brewline Coffee Co.</h1>
+        <div class="sub">Sales &amp; customer analytics &middot; synthetic portfolio dataset</div>
+      </div>
     </div>
-    <div class="panel">
-      <h3>Revenue by category</h3>
-      <div class="chart-wrap"><canvas id="categoryChart"></canvas></div>
+    <div class="hero-links">
+      <a href="https://github.com/MyDakshAI/Brewline-Coffee-Analytics" target="_blank" rel="noopener">GitHub repo</a>
+      <a href="#rfm">RFM segmentation</a>
     </div>
   </div>
 
-  <div class="grid thirds">
-    <div class="panel">
-      <h3>Top items by revenue</h3>
-      <div class="chart-wrap"><canvas id="itemsChart"></canvas></div>
-    </div>
-    <div class="panel">
-      <h3>Revenue by customer age group</h3>
-      <div class="chart-wrap"><canvas id="ageChart"></canvas></div>
-    </div>
-  </div>
+  <div class="filters" id="filters"></div>
 
-  <div class="panel" style="margin-bottom:8px;">
-    <h3>Orders by day of week</h3>
-    <div class="chart-wrap"><canvas id="dowChart"></canvas></div>
-  </div>
+  <div class="kpi-grid" id="kpiGrid"></div>
 
-  <footer>Brewline Coffee Co. — internal sales dashboard · data through Dec 31, 2025</footer>
+  <section style="margin-top:28px;">
+    <div class="section-head">
+      <h2>Revenue by month</h2>
+      <p>Monthly revenue for the selected location across the full year of order history.</p>
+    </div>
+    <div class="card trend-wrap">
+      <svg id="trendChart" viewBox="0 0 900 260" style="width:100%; height:auto; display:block; overflow: visible;"></svg>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid-2">
+      <div>
+        <div class="section-head">
+          <h2>Revenue by category</h2>
+          <p>Share of revenue across the five menu categories, selected location.</p>
+        </div>
+        <div class="card">
+          <div class="donut-row">
+            <svg id="donutChart" viewBox="0 0 200 200" width="200" height="200" style="flex: none;"></svg>
+            <div class="legend" id="donutLegend"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-head">
+          <h2>Revenue by location</h2>
+          <p>Total revenue at each cafe, full year.</p>
+        </div>
+        <div class="card">
+          <div class="barlist" id="storeBars"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rfm">
+    <div class="section-head">
+      <h2>Customer segments (RFM)</h2>
+      <p>All 650 customers scored on recency, frequency and monetary value and grouped into six segments. Not affected by the location filter above &mdash; this is a full-chain view.</p>
+    </div>
+    <div class="card">
+      <div class="rfm-grid">
+        <div>
+          <h3 style="font-size:14px; font-weight:600; margin: 0 0 10px; color: var(--text-secondary);">Customers per segment</h3>
+          <div class="barlist" id="rfmCountBars"></div>
+        </div>
+        <div>
+          <h3 style="font-size:14px; font-weight:600; margin: 0 0 10px; color: var(--text-secondary);">Revenue per segment</h3>
+          <div class="barlist" id="rfmRevenueBars"></div>
+        </div>
+      </div>
+
+      <div class="stat-pair">
+        <div class="stat-mini">
+          <div class="k">Loyalty members</div>
+          <div class="v">9.30 orders / customer</div>
+          <div class="d">291 customers &middot; $7.34 avg order</div>
+        </div>
+        <div class="stat-mini">
+          <div class="k">Non-members</div>
+          <div class="v">9.16 orders / customer</div>
+          <div class="d">359 customers &middot; $7.44 avg order</div>
+        </div>
+      </div>
+
+      <button class="table-toggle" id="rfmTableToggle">Show segment data as a table</button>
+      <div class="table-wrap" id="rfmTableWrap" hidden>
+        <table>
+          <thead><tr><th>Segment</th><th>Customers</th><th>Revenue</th><th>Loyalty rate</th></tr></thead>
+          <tbody id="rfmTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Built by Daksh Goswami &middot; synthetic dataset, portfolio project.</div>
+    <div class="links">
+      <a href="https://github.com/MyDakshAI/Brewline-Coffee-Analytics" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/daksh-goswami-3077aa280" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
 </div>
 
+<div id="tooltip"><span class="t-label"></span><span class="t-val"></span></div>
+
 <script>
-const DATA = {"stores": ["Downtown", "Riverside", "University Ave"], "kpis": {"total_revenue": 44316.68, "total_orders": 5994, "unique_customers": 650, "avg_order_value": 7.39, "loyalty_share": 45.1}, "monthly_by_store": {"All": [3812.11, 3492.99, 3835.11, 3971.45, 3465.43, 3805.28, 4039.43, 3639.1, 3598.23, 3781.68, 3534.31, 3341.56], "Downtown": [1606.81, 1454.88, 1608.97, 1713.11, 1505.21, 1517.35, 1633.33, 1513.47, 1458.74, 1627.32, 1415.88, 1295.18], "Riverside": [1116.28, 1145.27, 1176.14, 1212.14, 1026.64, 1258.11, 1289.82, 1087.22, 1101.09, 1183.29, 1093.37, 1084.68], "University Ave": [1089.02, 892.84, 1050.0, 1046.2, 933.58, 1029.82, 1116.28, 1038.41, 1038.4, 971.07, 1025.06, 961.7]}, "category_by_store": {"All": {"Brewed Coffee": 7208.24, "Espresso Drinks": 17746.75, "Food": 8306.85, "Pastries": 6998.6, "Tea": 4056.24}, "Downtown": {"Brewed Coffee": 3032.06, "Espresso Drinks": 7076.18, "Food": 3608.24, "Pastries": 2968.37, "Tea": 1665.4}, "Riverside": {"Brewed Coffee": 2219.54, "Espresso Drinks": 5660.66, "Food": 2526.65, "Pastries": 2089.76, "Tea": 1277.44}, "University Ave": {"Brewed Coffee": 1956.64, "Espresso Drinks": 5009.91, "Food": 2171.96, "Pastries": 1940.47, "Tea": 1113.4}}, "top_items_by_store": {"All": [{"item": "Flat White", "revenue": 3811.25}, {"item": "Cappuccino", "revenue": 3563.92}, {"item": "Latte", "revenue": 3541.85}, {"item": "Americano", "revenue": 3533.82}, {"item": "Espresso Shot", "revenue": 3295.91}, {"item": "Avocado Toast", "revenue": 2958.0}], "Downtown": [{"item": "Cappuccino", "revenue": 1505.92}, {"item": "Flat White", "revenue": 1454.65}, {"item": "Americano", "revenue": 1447.85}, {"item": "Latte", "revenue": 1440.99}, {"item": "Bagel", "revenue": 1347.91}, {"item": "Espresso Shot", "revenue": 1226.77}], "Riverside": [{"item": "Flat White", "revenue": 1195.36}, {"item": "Espresso Shot", "revenue": 1159.94}, {"item": "Cappuccino", "revenue": 1153.33}, {"item": "Latte", "revenue": 1093.27}, {"item": "Americano", "revenue": 1058.76}, {"item": "Avocado Toast", "revenue": 917.37}], "University Ave": [{"item": "Flat White", "revenue": 1161.24}, {"item": "Americano", "revenue": 1027.21}, {"item": "Latte", "revenue": 1007.59}, {"item": "Espresso Shot", "revenue": 909.2}, {"item": "Cappuccino", "revenue": 904.67}, {"item": "Avocado Toast", "revenue": 826.14}]}, "age_group_by_store": {"All": {"18-24": 5534.35, "25-34": 8120.26, "35-44": 9839.53, "45-54": 7694.38, "55+": 13128.16}, "Downtown": {"18-24": 2275.24, "25-34": 3396.67, "35-44": 4033.87, "45-54": 3213.95, "55+": 5430.52}, "Riverside": {"18-24": 1675.17, "25-34": 2547.79, "35-44": 2946.54, "45-54": 2504.86, "55+": 4099.69}, "University Ave": {"18-24": 1583.94, "25-34": 2175.8, "35-44": 2859.12, "45-54": 1975.57, "55+": 3597.95}}, "dow_by_store": {"All": {"Monday": 884, "Tuesday": 860, "Wednesday": 830, "Thursday": 838, "Friday": 867, "Saturday": 861, "Sunday": 854}, "Downtown": {"Monday": 370, "Tuesday": 375, "Wednesday": 337, "Thursday": 341, "Friday": 342, "Saturday": 354, "Sunday": 352}, "Riverside": {"Monday": 262, "Tuesday": 264, "Wednesday": 261, "Thursday": 266, "Friday": 303, "Saturday": 255, "Sunday": 261}, "University Ave": {"Monday": 252, "Tuesday": 221, "Wednesday": 232, "Thursday": 231, "Friday": 222, "Saturday": 252, "Sunday": 241}}};
+(function(){
+  "use strict";
 
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const fmtMoney = n => "$" + n.toLocaleString(undefined, {maximumFractionDigits:0});
+  var DATA = {
+    stores: ["All","Downtown","Riverside","University Ave"],
+    byStore: {
+      "All": {
+        totalRevenue: 44316.68, totalOrders: 5994, uniqueCustomers: 650, avgOrderValue: 7.39,
+        byMonth: {January:3812.11,February:3492.99,March:3835.11,April:3971.45,May:3465.43,June:3805.28,July:4039.43,August:3639.10,September:3598.23,October:3781.68,November:3534.31,December:3341.56},
+        byCategory: {"Espresso Drinks":17746.75,"Food":8306.85,"Brewed Coffee":7208.24,"Pastries":6998.60,"Tea":4056.24}
+      },
+      "Downtown": {
+        totalRevenue: 18350.25, totalOrders: 2471, uniqueCustomers: 631, avgOrderValue: 7.43,
+        byMonth: {January:1606.81,February:1454.88,March:1608.97,April:1713.11,May:1505.21,June:1517.35,July:1633.33,August:1513.47,September:1458.74,October:1627.32,November:1415.88,December:1295.18},
+        byCategory: {"Espresso Drinks":7076.18,"Food":3608.24,"Brewed Coffee":3032.06,"Pastries":2968.37,"Tea":1665.40}
+      },
+      "Riverside": {
+        totalRevenue: 13774.05, totalOrders: 1872, uniqueCustomers: 615, avgOrderValue: 7.36,
+        byMonth: {January:1116.28,February:1145.27,March:1176.14,April:1212.14,May:1026.64,June:1258.11,July:1289.82,August:1087.22,September:1101.09,October:1183.29,November:1093.37,December:1084.68},
+        byCategory: {"Espresso Drinks":5660.66,"Food":2526.65,"Brewed Coffee":2219.54,"Pastries":2089.76,"Tea":1277.44}
+      },
+      "University Ave": {
+        totalRevenue: 12192.38, totalOrders: 1651, uniqueCustomers: 583, avgOrderValue: 7.38,
+        byMonth: {January:1089.02,February:892.84,March:1050.00,April:1046.20,May:933.58,June:1029.82,July:1116.28,August:1038.41,September:1038.40,October:971.07,November:1025.06,December:961.70},
+        byCategory: {"Espresso Drinks":5009.91,"Food":2171.96,"Brewed Coffee":1956.64,"Pastries":1940.47,"Tea":1113.40}
+      }
+    },
+    revenueByStore: {"Downtown":18350.25,"Riverside":13774.05,"University Ave":12192.38},
+    rfm: {
+      segmentOrder: ["Champions","Loyal Customers","New / Promising","Needs Attention","At Risk","Lost / Hibernating"],
+      counts: {"Champions":112,"Loyal Customers":67,"New / Promising":81,"Needs Attention":184,"At Risk":72,"Lost / Hibernating":134},
+      revenue: {"Champions":10979.47,"Loyal Customers":4563.18,"New / Promising":3931.30,"Needs Attention":12589.97,"At Risk":6273.72,"Lost / Hibernating":5979.04},
+      loyaltyRate: {"Champions":50.9,"Loyal Customers":49.3,"New / Promising":40.7,"Needs Attention":47.3,"At Risk":41.7,"Lost / Hibernating":38.1}
+    }
+  };
 
-const css = getComputedStyle(document.documentElement);
-const cAmber = "#B9793B", cSage = "#5C7A5E", cBerry = "#9C5B58", cInk = "#6B5747";
+  var CATEGORY_COLORS = {
+    "Espresso Drinks": "var(--s-blue)",
+    "Food": "var(--s-orange)",
+    "Brewed Coffee": "var(--s-aqua)",
+    "Pastries": "var(--s-amber)",
+    "Tea": "var(--s-magenta)"
+  };
+  var CATEGORY_HEX = {
+    "Espresso Drinks": "#3987e5",
+    "Food": "#d95926",
+    "Brewed Coffee": "#199e70",
+    "Pastries": "#c98500",
+    "Tea": "#d55181"
+  };
+  var STORE_HEX = { "Downtown": "#3987e5", "Riverside": "#d95926", "University Ave": "#199e70" };
+  var RFM_HEX = {
+    "Champions": "#3987e5", "Loyal Customers": "#d95926", "New / Promising": "#199e70",
+    "Needs Attention": "#c98500", "At Risk": "#d55181", "Lost / Hibernating": "#008300"
+  };
 
-const select = document.getElementById("storeFilter");
-select.innerHTML = '<option value="All">All stores</option>' +
-  DATA.stores.map(s => `<option value="${s}">${s}</option>`).join("");
+  var money0 = function(n){ return "$" + Math.round(n).toLocaleString("en-US"); };
+  var money2 = function(n){ return "$" + n.toLocaleString("en-US", {minimumFractionDigits:2, maximumFractionDigits:2}); };
+  var int0 = function(n){ return Math.round(n).toLocaleString("en-US"); };
 
-let charts = {};
+  var tooltip = document.getElementById("tooltip");
+  function showTip(evt, label, val){
+    tooltip.querySelector(".t-label").textContent = label;
+    tooltip.querySelector(".t-val").textContent = val;
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top = evt.clientY + "px";
+    tooltip.classList.add("show");
+  }
+  function moveTip(evt){
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top = evt.clientY + "px";
+  }
+  function hideTip(){ tooltip.classList.remove("show"); }
 
-function makeChart(id, config) {
-  const ctx = document.getElementById(id);
-  if (charts[id]) charts[id].destroy();
-  charts[id] = new Chart(ctx, config);
-}
+  var currentStore = "All";
 
-function render(store) {
-  const monthly = DATA.monthly_by_store[store];
-  const cats = DATA.category_by_store[store];
-  const items = DATA.top_items_by_store[store];
-  const ages = DATA.age_group_by_store[store];
-  const dow = DATA.dow_by_store[store];
-
-  const totalRev = monthly.reduce((a,b) => a+b, 0);
-  document.getElementById("heroRevenue").textContent = fmtMoney(totalRev);
-
-  if (store === "All") {
-    document.getElementById("kpiOrders").textContent = DATA.kpis.total_orders.toLocaleString();
-    document.getElementById("kpiCustomers").textContent = DATA.kpis.unique_customers.toLocaleString();
-    document.getElementById("kpiAOV").textContent = "$" + DATA.kpis.avg_order_value.toFixed(2);
-    document.getElementById("kpiLoyalty").textContent = DATA.kpis.loyalty_share + "%";
-  } else {
-    const orders = Object.values(dow).reduce((a,b) => a+b, 0);
-    document.getElementById("kpiOrders").textContent = orders.toLocaleString();
-    document.getElementById("kpiCustomers").textContent = "—";
-    document.getElementById("kpiAOV").textContent = "$" + (totalRev/orders).toFixed(2);
-    document.getElementById("kpiLoyalty").textContent = "—";
+  function renderFilters(){
+    var wrap = document.getElementById("filters");
+    wrap.innerHTML = "";
+    DATA.stores.forEach(function(s){
+      var b = document.createElement("button");
+      b.className = "pill" + (s === currentStore ? " active" : "");
+      b.textContent = s;
+      b.addEventListener("click", function(){ currentStore = s; renderAll(); });
+      wrap.appendChild(b);
+    });
   }
 
-  makeChart("monthlyChart", {
-    type: "line",
-    data: { labels: MONTHS, datasets: [{
-      data: monthly, borderColor: cAmber, backgroundColor: cAmber + "33",
-      fill: true, tension: 0.3, pointRadius: 3
-    }]},
-    options: { plugins: { legend: { display: false } },
-      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } },
-                x: { ticks: { color: cInk }, grid: { display: false } } },
-      responsive: true, maintainAspectRatio: false }
+  function renderKPIs(){
+    var d = DATA.byStore[currentStore];
+    var grid = document.getElementById("kpiGrid");
+    var items = [
+      { label: "Total revenue", val: money0(d.totalRevenue), foot: currentStore },
+      { label: "Total orders", val: int0(d.totalOrders), foot: currentStore },
+      { label: "Unique customers", val: int0(d.uniqueCustomers), foot: currentStore },
+      { label: "Avg order value", val: money2(d.avgOrderValue), foot: currentStore }
+    ];
+    grid.innerHTML = "";
+    items.forEach(function(it){
+      var el = document.createElement("div");
+      el.className = "kpi";
+      el.innerHTML = '<div class="label">' + it.label + '</div><div class="num">' + it.val + '</div><div class="foot">' + it.foot + '</div>';
+      grid.appendChild(el);
+    });
+  }
+
+  function renderTrend(){
+    var d = DATA.byStore[currentStore];
+    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var vals = months.map(function(m){ return d.byMonth[m]; });
+    var max = Math.max.apply(null, vals);
+    var min = Math.min.apply(null, vals);
+    var pad = (max - min) * 0.25 || max * 0.1;
+    var yMax = max + pad, yMin = Math.max(0, min - pad);
+
+    var W = 900, H = 260, ML = 44, MR = 16, MT = 16, MB = 30;
+    var plotW = W - ML - MR, plotH = H - MT - MB;
+
+    function x(i){ return ML + (plotW * i) / (months.length - 1); }
+    function y(v){ return MT + plotH - ((v - yMin) / (yMax - yMin)) * plotH; }
+
+    var pts = vals.map(function(v, i){ return x(i) + "," + y(v); });
+    var linePath = "M" + pts.join(" L");
+    var areaPath = linePath + " L" + x(months.length - 1) + "," + (MT + plotH) + " L" + x(0) + "," + (MT + plotH) + " Z";
+
+    var gridLines = "";
+    var ticks = 4;
+    for (var t = 0; t <= ticks; t++){
+      var gv = yMin + ((yMax - yMin) * t) / ticks;
+      var gy = y(gv);
+      gridLines += '<line class="grid-line" x1="' + ML + '" x2="' + (W - MR) + '" y1="' + gy + '" y2="' + gy + '"></line>';
+      gridLines += '<text class="axis-label" x="' + (ML - 8) + '" y="' + (gy + 3) + '" text-anchor="end">' + money0(gv) + '</text>';
+    }
+
+    var monthLabels = "";
+    var shortM = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    months.forEach(function(m, i){
+      if (i % 2 === 0){
+        monthLabels += '<text class="axis-label" x="' + x(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + shortM[i] + '</text>';
+      }
+    });
+
+    var dots = vals.map(function(v, i){
+      return '<circle class="trend-dot" cx="' + x(i) + '" cy="' + y(v) + '" r="9" fill="transparent" data-month="' + months[i] + '" data-val="' + v + '"></circle>' +
+             '<circle cx="' + x(i) + '" cy="' + y(v) + '" r="3" fill="#c98500"></circle>';
+    }).join("");
+
+    var svg = document.getElementById("trendChart");
+    svg.innerHTML =
+      '<defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0%" stop-color="#c98500" stop-opacity="0.35"></stop>' +
+      '<stop offset="100%" stop-color="#c98500" stop-opacity="0"></stop>' +
+      '</linearGradient></defs>' +
+      gridLines +
+      '<path d="' + areaPath + '" fill="url(#areaGrad)" stroke="none"></path>' +
+      '<path d="' + linePath + '" fill="none" stroke="#c98500" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>' +
+      dots +
+      monthLabels;
+
+    svg.querySelectorAll(".trend-dot").forEach(function(dot){
+      dot.addEventListener("mouseenter", function(e){ showTip(e, dot.getAttribute("data-month"), money0(parseFloat(dot.getAttribute("data-val")))); });
+      dot.addEventListener("mousemove", moveTip);
+      dot.addEventListener("mouseleave", hideTip);
+    });
+  }
+
+  function renderDonut(){
+    var d = DATA.byStore[currentStore];
+    var cats = Object.keys(d.byCategory);
+    var total = cats.reduce(function(s, c){ return s + d.byCategory[c]; }, 0);
+
+    var cx = 100, cy = 100, r = 72, sw = 30;
+    var circumference = 2 * Math.PI * r;
+    var offset = 0;
+    var segs = "";
+
+    cats.forEach(function(c){
+      var v = d.byCategory[c];
+      var frac = v / total;
+      var dash = frac * circumference;
+      var gap = circumference - dash;
+      var rotation = (offset / circumference) * 360 - 90;
+      segs += '<circle class="donut-seg" cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + CATEGORY_HEX[c] +
+        '" stroke-width="' + sw + '" stroke-dasharray="' + dash + ' ' + gap + '" transform="rotate(' + rotation + ' ' + cx + ' ' + cy + ')" ' +
+        'data-cat="' + c + '" data-val="' + v + '" data-pct="' + (frac * 100).toFixed(1) + '" stroke-linecap="butt"></circle>';
+      offset += dash;
+    });
+
+    var svg = document.getElementById("donutChart");
+    svg.innerHTML = segs +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r - sw / 2 - 6) + '" fill="var(--surface)"></circle>' +
+      '<text x="' + cx + '" y="' + (cy - 4) + '" text-anchor="middle" font-family="Fraunces, serif" font-size="18" font-weight="600" fill="var(--text-primary)">' + money0(total) + '</text>' +
+      '<text x="' + cx + '" y="' + (cy + 15) + '" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">' + currentStore + '</text>';
+
+    svg.querySelectorAll(".donut-seg").forEach(function(seg){
+      seg.addEventListener("mouseenter", function(e){
+        showTip(e, seg.getAttribute("data-cat"), money0(parseFloat(seg.getAttribute("data-val"))) + " (" + seg.getAttribute("data-pct") + "%)");
+        seg.style.opacity = "0.82";
+      });
+      seg.addEventListener("mousemove", moveTip);
+      seg.addEventListener("mouseleave", function(){ hideTip(); seg.style.opacity = "1"; });
+    });
+
+    var legend = document.getElementById("donutLegend");
+    legend.innerHTML = "";
+    cats.forEach(function(c){
+      var v = d.byCategory[c];
+      var pct = ((v / total) * 100).toFixed(1);
+      var row = document.createElement("div");
+      row.className = "legend-item";
+      row.innerHTML = '<span class="swatch" style="background:' + CATEGORY_HEX[c] + '"></span>' +
+        '<span class="lbl">' + c + '</span><span class="val">' + pct + '%</span>';
+      legend.appendChild(row);
+    });
+  }
+
+  function renderStoreBars(){
+    var wrap = document.getElementById("storeBars");
+    wrap.innerHTML = "";
+    var stores = Object.keys(DATA.revenueByStore);
+    var max = Math.max.apply(null, stores.map(function(s){ return DATA.revenueByStore[s]; }));
+    stores.forEach(function(s){
+      var v = DATA.revenueByStore[s];
+      var pct = (v / max) * 100;
+      var isActive = s === currentStore;
+      var row = document.createElement("div");
+      row.className = "bar-row";
+      row.innerHTML =
+        '<div class="name" style="' + (isActive ? "color: var(--text-primary); font-weight:600;" : "") + '">' + s + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%; background:' + STORE_HEX[s] + (isActive ? "" : "; opacity:0.72") + '"></div></div>' +
+        '<div class="val">' + money0(v) + '</div>';
+      var track = row.querySelector(".bar-track");
+      track.addEventListener("mouseenter", function(e){ showTip(e, s, money0(v)); });
+      track.addEventListener("mousemove", moveTip);
+      track.addEventListener("mouseleave", hideTip);
+      wrap.appendChild(row);
+    });
+  }
+
+  function renderRfmBars(){
+    var segs = DATA.rfm.segmentOrder;
+
+    var countWrap = document.getElementById("rfmCountBars");
+    var maxCount = Math.max.apply(null, segs.map(function(s){ return DATA.rfm.counts[s]; }));
+    countWrap.innerHTML = "";
+    segs.forEach(function(s){
+      var v = DATA.rfm.counts[s];
+      var pct = (v / maxCount) * 100;
+      var row = document.createElement("div");
+      row.className = "bar-row";
+      row.innerHTML = '<div class="name">' + s + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%; background:' + RFM_HEX[s] + '"></div></div>' +
+        '<div class="val">' + int0(v) + '</div>';
+      var track = row.querySelector(".bar-track");
+      track.addEventListener("mouseenter", function(e){ showTip(e, s, v + " customers"); });
+      track.addEventListener("mousemove", moveTip);
+      track.addEventListener("mouseleave", hideTip);
+      countWrap.appendChild(row);
+    });
+
+    var revWrap = document.getElementById("rfmRevenueBars");
+    var maxRev = Math.max.apply(null, segs.map(function(s){ return DATA.rfm.revenue[s]; }));
+    revWrap.innerHTML = "";
+    segs.forEach(function(s){
+      var v = DATA.rfm.revenue[s];
+      var pct = (v / maxRev) * 100;
+      var row = document.createElement("div");
+      row.className = "bar-row";
+      row.innerHTML = '<div class="name">' + s + '</div>' +
+        '<div class="bar-track"><div class="bar-fill" style="width:' + pct + '%; background:' + RFM_HEX[s] + '"></div></div>' +
+        '<div class="val">' + money0(v) + '</div>';
+      var track = row.querySelector(".bar-track");
+      track.addEventListener("mouseenter", function(e){ showTip(e, s, money0(v)); });
+      track.addEventListener("mousemove", moveTip);
+      track.addEventListener("mouseleave", hideTip);
+      revWrap.appendChild(row);
+    });
+
+    var tbody = document.getElementById("rfmTableBody");
+    tbody.innerHTML = "";
+    segs.forEach(function(s){
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + s + "</td><td>" + int0(DATA.rfm.counts[s]) + "</td><td>" + money0(DATA.rfm.revenue[s]) + "</td><td>" + DATA.rfm.loyaltyRate[s] + "%</td>";
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById("rfmTableToggle").addEventListener("click", function(){
+    var wrap = document.getElementById("rfmTableWrap");
+    var willShow = wrap.hasAttribute("hidden");
+    if (willShow){ wrap.removeAttribute("hidden"); this.textContent = "Hide segment data table"; }
+    else { wrap.setAttribute("hidden", ""); this.textContent = "Show segment data as a table"; }
   });
 
-  const catLabels = Object.keys(cats);
-  makeChart("categoryChart", {
-    type: "doughnut",
-    data: { labels: catLabels, datasets: [{
-      data: Object.values(cats),
-      backgroundColor: [cAmber, cSage, cBerry, "#C9A66B", "#7A9E88"]
-    }]},
-    options: { plugins: { legend: { position: "bottom", labels: { color: cInk, boxWidth: 12, font: {size: 11} } } },
-      responsive: true, maintainAspectRatio: false }
-  });
+  function renderAll(){
+    renderFilters();
+    renderKPIs();
+    renderTrend();
+    renderDonut();
+    renderStoreBars();
+  }
 
-  makeChart("itemsChart", {
-    type: "bar",
-    data: { labels: items.map(i => i.item), datasets: [{
-      data: items.map(i => i.revenue), backgroundColor: cBerry
-    }]},
-    options: { indexAxis: "y", plugins: { legend: { display: false } },
-      scales: { y: { ticks: { color: cInk } }, x: { ticks: { color: cInk }, grid: { color: "#00000010" } } },
-      responsive: true, maintainAspectRatio: false }
-  });
-
-  makeChart("ageChart", {
-    type: "bar",
-    data: { labels: Object.keys(ages), datasets: [{
-      data: Object.values(ages), backgroundColor: cSage
-    }]},
-    options: { plugins: { legend: { display: false } },
-      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } }, x: { ticks: { color: cInk }, grid: { display: false } } },
-      responsive: true, maintainAspectRatio: false }
-  });
-
-  makeChart("dowChart", {
-    type: "bar",
-    data: { labels: Object.keys(dow), datasets: [{
-      data: Object.values(dow), backgroundColor: cAmber
-    }]},
-    options: { plugins: { legend: { display: false } },
-      scales: { y: { ticks: { color: cInk }, grid: { color: "#00000010" } }, x: { ticks: { color: cInk }, grid: { display: false } } },
-      responsive: true, maintainAspectRatio: false }
-  });
-}
-
-select.addEventListener("change", e => render(e.target.value));
-render("All");
+  renderAll();
+  renderRfmBars();
+})();
 </script>
+
 </body>
 </html>
